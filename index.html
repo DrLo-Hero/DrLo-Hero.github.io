@@ -1,0 +1,557 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&display=swap" rel="stylesheet">
+<style>
+:root { --bg:#0a0a0b; --panel:#131316; --ink:#f1eee8; --muted:#8d8a84; --line:#26262b; --accent:#ff6a3d;
+        --display:"Bricolage Grotesque", system-ui, sans-serif; --pad:clamp(20px, 5vw, 72px); }
+* { box-sizing: border-box; } [hidden] { display:none !important; }
+html { scroll-behavior: smooth; }
+body { margin:0; background:var(--bg); color:var(--ink); font: 17px/1.55 system-ui, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+a { color: inherit; } button { font: inherit; color: inherit; cursor: pointer; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+h1, h2, h3 { font-family: var(--display); font-weight: 700; letter-spacing: -.035em; line-height: .95; margin: 0; }
+h2 { font-size: clamp(44px, 9vw, 128px); text-transform: uppercase; }
+section { padding: clamp(72px, 12vw, 160px) var(--pad); }
+.label { display:flex; gap:14px; align-items:center; color:var(--muted); font-size:13px; letter-spacing:.14em;
+  text-transform:uppercase; margin:0 0 20px; }
+.label::before { content:""; width:36px; height:1px; background:var(--accent); }
+.reveal { opacity:0; transform: translateY(28px); transition: opacity .8s ease, transform .8s cubic-bezier(.2,.7,.2,1); }
+.reveal.in { opacity:1; transform:none; }
+
+/* nav */
+nav { position:fixed; inset:0 0 auto; z-index:20; display:flex; justify-content:space-between; align-items:center;
+  padding:18px var(--pad); mix-blend-mode: difference; }
+nav a { text-decoration:none; font-size:14px; letter-spacing:.06em; text-transform:uppercase; }
+nav .brand { font-family:var(--display); font-weight:700; font-size:18px; letter-spacing:-.01em; text-transform:none; }
+nav ul { display:flex; gap:clamp(14px, 3vw, 36px); list-style:none; margin:0; padding:0; }
+nav li a:hover { color: var(--accent); }
+@media (max-width: 640px) { nav li.wide { display:none; } }
+
+/* hero */
+.hero { position:relative; display:flex; align-items:flex-end; padding:clamp(110px, 16vh, 150px) var(--pad) clamp(40px, 6vh, 64px);
+  overflow:hidden; background: radial-gradient(60vmax 60vmax at var(--mx, 70%) var(--my, 30%), #3a1c12 0%, transparent 60%), var(--bg); }
+.hero video { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:.5; }
+.hero::after { content:""; position:absolute; inset:0; background:linear-gradient(to top, var(--bg) 4%, transparent 55%); }
+.hero-in { position:relative; z-index:1; width:100%; }
+.hero .eyebrow { color:var(--accent); font-size:14px; letter-spacing:.14em; text-transform:uppercase; margin:0 0 18px; }
+h1 { font-size: clamp(44px, 9vw, 132px); line-height:.9; text-transform:uppercase; font-weight:800; }
+h1 span { display:inline-block; margin-right:.22em; animation: rise 1s cubic-bezier(.2,.7,.2,1) both; }
+h1 span:nth-child(2) { color:var(--accent); animation-delay:.12s; }
+@keyframes rise { from { opacity:0; transform: translateY(.35em); } }
+.lede { max-width: 62ch; font-size: clamp(16px, 1.4vw, 19px); color:#cfcbc3; margin: 20px 0 0; }
+.stats { display:flex; flex-wrap:wrap; gap: clamp(20px, 5vw, 72px); list-style:none; padding:22px 0 0; margin:26px 0 0;
+  border-top:1px solid var(--line); }
+.stats li { max-width: 24ch; } .stats b { display:block; font: 700 clamp(22px, 2.2vw, 30px)/1.1 var(--display); margin-bottom:6px; }
+.stats span { color:var(--muted); font-size:14px; }
+
+/* marquee */
+.marquee { overflow:hidden; border-block:1px solid var(--line); padding:10px 0; white-space:nowrap; }
+.track { display:inline-block; animation: slide 30s linear infinite; font: 600 clamp(13px, 1.3vw, 17px)/1 var(--display);
+  text-transform:uppercase; letter-spacing:.08em; color:var(--muted); }
+.track span::after { content:"✦"; color:var(--accent); margin:0 .7em; font-size:.6em; vertical-align:middle; }
+@keyframes slide { to { transform: translateX(-50%); } }
+
+/* projects */
+.project { display:grid; grid-template-columns: 1.5fr 1fr; gap: clamp(20px, 4vw, 64px); align-items:center;
+  padding: clamp(32px, 6vw, 80px) 0; border-top:1px solid var(--line); }
+.project .media { border:1px solid var(--line); cursor:zoom-in; } .project .media img { transition: opacity .25s, transform .9s cubic-bezier(.2,.7,.2,1); }
+.media { position:relative; aspect-ratio:16/9; width:100%; border:0; padding:0; border-radius:14px; overflow:hidden;
+  background: linear-gradient(135deg, #1c1c21, #2b1711); }
+.media video, .media img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:top left;
+  transition: transform .9s cubic-bezier(.2,.7,.2,1); }
+.media:hover video, .media:hover img { transform: scale(1.05); }
+.media .num { position:absolute; left:20px; bottom:4px; font: 800 clamp(70px, 13vw, 190px)/1 var(--display);
+  color:#ffffff14; }
+.media .open { position:absolute; right:16px; top:16px; z-index:1; padding:8px 14px; border-radius:999px; font-size:13px;
+  background:var(--ink); color:var(--bg); opacity:0; transform: translateY(-6px); transition: .3s; }
+.media:hover .open, .media:focus-visible .open { opacity:1; transform:none; }
+.ptext .meta { color:var(--muted); font-size:13px; letter-spacing:.1em; text-transform:uppercase; margin:0 0 12px; }
+.ptext h3 { font-size: clamp(34px, 5vw, 76px); }
+.ptext .sum { color:#cfcbc3; margin:16px 0 0; max-width:40ch; }
+.ptext .metric { color:var(--accent); font-size:14px; margin:14px 0 0; }
+.caps { list-style:none; padding:0; margin:24px 0 0; border-top:1px solid var(--line); }
+.caps button { display:flex; justify-content:space-between; gap:12px; width:100%; padding:13px 0; background:none; border:0;
+  border-bottom:1px solid var(--line); text-align:left; font: 600 17px/1.25 var(--display); color:var(--muted); transition: color .2s, padding .2s; }
+.caps button::after { content:"→"; opacity:0; transition: opacity .2s; }
+.caps button:hover { color:var(--ink); } .caps button[aria-pressed=true] { color:var(--ink); padding-left:12px; box-shadow: inset 3px 0 var(--accent); }
+.caps button[aria-pressed=true]::after { opacity:1; color:var(--accent); }
+.captext { color:#cfcbc3; font-size:15px; margin:14px 0 0; min-height:5.5em; }
+.caps button[aria-pressed=true] { background: linear-gradient(90deg, #ff6a3d14 var(--p, 0%), transparent var(--p, 0%)); }
+.project { grid-template-areas: "media text" "nums nums"; } .project .media { grid-area:media; } .ptext { grid-area:text; }
+.project:nth-child(even) { grid-template-columns: 1fr 1.5fr; grid-template-areas: "text media" "nums nums"; }
+.purpose { color:var(--muted); font-size:15px; margin:14px 0 0; max-width:44ch; }
+.nums { grid-area:nums; display:grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap:1px; background:var(--line);
+  border:1px solid var(--line); border-radius:14px; overflow:hidden; list-style:none; padding:0; margin:0; }
+.nums li { background:var(--bg); padding:18px 20px; transition: background .25s; } .nums li:hover { background:var(--panel); }
+.nums b { display:block; font: 700 clamp(24px, 2.6vw, 36px)/1.1 var(--display); } .nums span { color:var(--muted); font-size:13px; }
+.chips { display:flex; flex-wrap:wrap; gap:6px; list-style:none; padding:0; margin:16px 0 0; }
+.chips li { padding:5px 11px; border:1px solid var(--line); border-radius:999px; font-size:12px; color:#cfcbc3; margin:0; }
+@media (max-width: 800px) { .project, .project:nth-child(even) { grid-template-columns:1fr; grid-template-areas: "media" "text" "nums"; } }
+.lbnav { display:flex; align-items:center; gap:10px; padding:10px clamp(20px, 4vw, 44px); border-bottom:1px solid var(--line); color:var(--muted); font-size:14px; }
+.lbnav button { width:36px; height:36px; border-radius:50%; border:1px solid var(--line); background:none; font-size:16px; }
+.lbnav button:hover { background:var(--ink); color:var(--bg); } .lbnav b { color:var(--ink); font-family:var(--display); font-size:17px; }
+#lbImg { display:block; width:100%; height:auto; }
+
+
+/* about */
+.about { display:grid; grid-template-columns: 1fr 1.1fr; gap: clamp(24px, 6vw, 96px); align-items:center; }
+.about .media { aspect-ratio:4/5; }
+.about p { color:#cfcbc3; max-width:52ch; }
+.about ul { list-style:none; padding:0; margin:28px 0 0; border-top:1px solid var(--line); }
+.about li { padding:14px 0; border-bottom:1px solid var(--line); font: 600 20px/1.2 var(--display); }
+@media (max-width: 800px) { .about { grid-template-columns:1fr; } }
+
+/* experience */
+.xp { border-top:1px solid var(--line); }
+.xp summary { display:grid; grid-template-columns: 170px 1fr 1.2fr 28px; gap:24px; padding:26px 0; cursor:pointer; list-style:none;
+  transition: padding .3s; }
+.xp summary::-webkit-details-marker { display:none; }
+.xp summary:hover { padding-left:12px; } .xp summary:hover h3 { color:var(--accent); }
+.xp summary::after { content:"+"; font: 400 28px/1 var(--display); color:var(--accent); justify-self:end; }
+.xp[open] summary::after { content:"–"; }
+.xp .years { color:var(--muted); font-size:14px; margin:4px 0 0; } .xp h3 { font-size:24px; line-height:1.1; transition: color .3s; }
+.xp .org { color:var(--muted); margin:6px 0 0; font-size:15px; }
+.xp ul { margin:0; padding-left:18px; color:#cfcbc3; } .xp li { margin:0 0 6px; } .xp li::marker { color:var(--accent); }
+.xp .more { padding: 0 52px 40px 194px; animation: rise .45s cubic-bezier(.2,.7,.2,1); } .xp .more > p { color:#cfcbc3; max-width:75ch; margin:0 0 22px; }
+.xp[open] { background: linear-gradient(180deg, #ffffff05, transparent); } .xp[open] h3 { color:var(--accent); }
+.xp .nums { margin:0 0 22px; padding:0; } .xp .nums li { background:var(--panel); margin:0; } .xp .chips { padding:0; margin:0 0 22px; }
+.faq summary { grid-template-columns: 1fr 28px; } .faq .more { padding:0 52px 32px 0; }
+.contact .where { color:var(--muted); margin:14px 0 0; }
+.xp .xlinks { display:flex; flex-wrap:wrap; gap:10px; margin:0 0 22px; }
+.duties { display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap:14px; margin-top:8px; }
+.duties section { padding:20px 22px; border:1px solid var(--line); border-radius:14px; background:var(--panel); transition: border-color .25s, transform .25s; }
+.duties section:hover { border-color:var(--accent); transform: translateY(-3px); } .duties h4 { margin:0 0 12px; color:var(--accent); }
+.duties li { font-size:15px; }
+.xptools { display:flex; gap:10px; align-items:center; margin-top:18px; }
+.xp h4 { font: 600 13px/1.3 system-ui, sans-serif; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); margin:22px 0 10px; }
+.xp .hint { font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); }
+@media (max-width: 800px) { .xp summary { grid-template-columns:1fr 28px; gap:8px; } .xp summary > * { grid-column:1; }
+  .xp summary::after { grid-column:2; grid-row:1; } .xp .more { padding:0 0 28px; } }
+
+/* education */
+.edu { display:grid; grid-template-columns: 1fr 1.4fr; gap: clamp(24px, 6vw, 96px); margin-top:clamp(32px,6vw,80px); }
+.edu h3 { font-size: clamp(28px, 3.4vw, 44px); } .edu .sub { color:var(--muted); margin:10px 0 0; }
+.edu ul { list-style:none; padding:0; margin:0; } .edu .creds li { padding:14px 0; border-top:1px solid var(--line); }
+.courses { display:flex; flex-wrap:wrap; gap:8px; } .courses li { padding:8px 14px; border:1px solid var(--line); border-radius:999px; font-size:14px; }
+@media (max-width: 800px) { .edu { grid-template-columns:1fr; } }
+
+.btn { display:inline-block; margin-top:20px; padding:13px 22px; border-radius:999px; background:var(--ink); color:var(--bg);
+  text-decoration:none; font-weight:600; font-size:15px; transition:.25s; }
+.btn:hover { background:var(--accent); }
+
+/* schedule */
+.sched { display:grid; grid-template-columns: 1fr 1fr; gap: clamp(24px, 6vw, 96px); margin-top:clamp(32px,6vw,80px); }
+.sched .note { color:var(--muted); font-size:14px; margin:0 0 18px; } .sched h3 { font-size: clamp(24px, 3vw, 36px); line-height:1.1; }
+.cal { display:grid; grid-template-columns: repeat(7, 1fr); gap:6px; max-width:520px; }
+.cal .dow { text-align:center; color:var(--muted); font-size:12px; }
+.cal button { position:relative; aspect-ratio:1; border:1px solid var(--line); border-radius:12px; background:var(--panel);
+  font: 600 17px/1 var(--display); transition: .2s; }
+.cal small { position:absolute; left:7px; top:6px; font: 400 10px/1 system-ui, sans-serif; text-transform:uppercase; opacity:.7; }
+.cal button:disabled { background:none; border-color:transparent; color:#4a4a50; cursor:default; }
+.cal button:enabled:hover { border-color:var(--accent); }
+.cal button[aria-pressed=true], .times button[aria-pressed=true] { background:var(--accent); border-color:var(--accent); color:#160703; }
+.times { display:flex; flex-wrap:wrap; gap:8px; margin-top:20px; }
+.sched form { display:grid; gap:10px; max-width:440px; margin-top:24px; }
+.sched input, .sched textarea { padding:11px 14px; border-radius:12px; border:1px solid var(--line); background:var(--bg);
+  color:var(--ink); font:inherit; font-size:15px; }
+.sched form .btn { justify-self:start; margin-top:4px; border:0; } .sched form .btn:disabled { opacity:.4; }
+@media (max-width: 800px) { .sched { grid-template-columns:1fr; } }
+
+
+/* contact */
+.contact h2 { font-size: clamp(56px, 14vw, 220px); }
+.contact .mail { display:inline-block; margin-top:28px; font: 600 clamp(20px, 3.4vw, 44px)/1.2 var(--display);
+  text-decoration-color: var(--accent); text-underline-offset:.2em; overflow-wrap:anywhere; }
+.contact .mail:hover { color:var(--accent); }
+.links { display:flex; flex-wrap:wrap; gap:12px; margin-top:36px; }
+.pill { padding:10px 18px; border:1px solid var(--line); border-radius:999px; text-decoration:none; font-size:14px;
+  background:none; transition: .25s; }
+.pill:hover { background:var(--ink); color:var(--bg); border-color:var(--ink); }
+footer { padding:28px var(--pad); color:var(--muted); font-size:13px; border-top:1px solid var(--line); }
+
+/* project lightbox */
+dialog { width:min(1040px, 94vw); max-height:92vh; padding:0; border:1px solid var(--line); border-radius:16px;
+  background:var(--panel); color:var(--ink); }
+dialog::backdrop { background:#000c; backdrop-filter: blur(6px); }
+dialog video { display:block; width:100%; max-height:60vh; background:#000; }
+dialog .body { padding: clamp(20px, 4vw, 44px); }
+dialog h3 { font-size: clamp(32px, 5vw, 60px); margin-bottom:8px; } dialog p { color:#cfcbc3; max-width:68ch; }
+dialog .x { position:sticky; float:right; top:14px; margin:14px 14px -52px 0; z-index:2; width:38px; height:38px; border-radius:50%; border:0;
+  background:#000a; color:#fff; font-size:20px; cursor:pointer; }
+
+/* the dog */
+#dog { position:fixed; left:0; top:0; z-index:25; pointer-events:none; image-rendering:pixelated; will-change:transform; }
+
+/* chat */
+.fab { position:fixed; right:20px; bottom:20px; z-index:30; display:flex; align-items:center; gap:10px; padding:14px 20px;
+  border:0; border-radius:999px; background:var(--accent); color:#160703; font-weight:700; box-shadow:0 10px 40px #ff6a3d55; }
+.fab::before { content:""; width:9px; height:9px; border-radius:50%; background:#160703; animation: pulse 2s infinite; }
+@keyframes pulse { 50% { opacity:.25; } }
+.chat { position:fixed; right:20px; bottom:84px; z-index:30; display:flex; flex-direction:column;
+  width:min(390px, calc(100vw - 24px)); height:min(560px, calc(100svh - 110px)); background:var(--panel);
+  border:1px solid var(--line); border-radius:18px; overflow:hidden; box-shadow:0 30px 80px #000c; }
+.chat header { display:flex; justify-content:space-between; align-items:center; gap:10px; padding:14px 16px;
+  border-bottom:1px solid var(--line); }
+.chat header b { font-family:var(--display); font-size:18px; } .chat header small { display:block; color:var(--muted); }
+.chat header button { background:none; border:0; font-size:22px; line-height:1; }
+.log { flex:1; overflow-y:auto; padding:16px; display:flex; flex-direction:column; gap:10px; }
+.msg { max-width:86%; padding:10px 14px; border-radius:16px; white-space:pre-wrap; overflow-wrap:anywhere; font-size:15px;
+  line-height:1.45; background:#1e1e23; }
+.msg.user { align-self:flex-end; background:var(--accent); color:#160703; }
+.msg.wait::after { content:"●●●"; letter-spacing:3px; color:var(--muted); animation: pulse 1s infinite; }
+.chips { display:flex; flex-wrap:wrap; gap:8px; padding:0 16px 12px; }
+.chips .pill { padding:7px 12px; font-size:13px; }
+.chat form { display:flex; gap:8px; padding:12px; border-top:1px solid var(--line); }
+.chat input { flex:1; min-width:0; padding:11px 14px; border-radius:999px; border:1px solid var(--line); background:var(--bg);
+  color:var(--ink); font:inherit; font-size:15px; }
+.chat form button { padding:0 18px; border:0; border-radius:999px; background:var(--ink); color:var(--bg); font-weight:600; }
+.chat form button:disabled { opacity:.4; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior:auto; } *, *::before, *::after { animation:none !important; transition:none !important; }
+  .reveal { opacity:1; transform:none; }
+}
+</style>
+</head>
+<body>
+
+<nav aria-label="Main">
+  <a class="brand" id="brand" href="#top"></a>
+  <ul>
+    <li class="wide"><a href="#about">About</a></li>
+    <li class="wide"><a href="#work">Work</a></li>
+    <li class="wide"><a href="#experience">Experience</a></li>
+    <li class="wide"><a id="navResume" target="_blank" rel="noopener">Resume</a></li>
+    <li class="wide"><a href="#faq">FAQ</a></li>
+    <li class="wide"><a href="#schedule">Schedule</a></li>
+    <li><a href="#contact">Let's talk</a></li>
+  </ul>
+</nav>
+
+<header class="hero" id="top">
+  <video id="heroVideo" muted loop playsinline autoplay aria-hidden="true"></video>
+  <div class="hero-in">
+    <p class="eyebrow" id="tagline"></p>
+    <h1 id="name"></h1>
+    <p class="lede" id="intro"></p>
+    <a class="btn" id="heroResume" target="_blank" rel="noopener">View resume ↗</a>
+    <ul class="stats" id="stats"></ul>
+  </div>
+</header>
+
+<div class="marquee" aria-hidden="true"><div class="track" id="track"></div></div>
+
+<main>
+  <section id="about" class="about">
+    <div class="media reveal" id="aboutMedia"></div>
+    <div class="reveal">
+      <p class="label">01 — About</p>
+      <h2 style="font-size:clamp(40px,6vw,92px)">Hello, I'm <span id="first"></span>.</h2>
+      <div id="aboutText" style="margin-top:28px"></div>
+      <ul id="expertise"></ul>
+    </div>
+  </section>
+
+  <section id="work">
+    <p class="label">02 — Selected work</p>
+    <h2 class="reveal">Projects</h2>
+    <div id="projects" style="margin-top:clamp(32px,6vw,80px)"></div>
+  </section>
+
+  <section id="experience">
+    <p class="label">03 — Experience</p>
+    <h2 class="reveal">Experience</h2>
+    <div class="xptools"><span class="hint">Select a role for the full description</span><button class="pill" type="button" id="xpAll" style="padding:6px 14px;font-size:13px">Expand all</button></div>
+    <div id="xp" style="margin-top:clamp(32px,6vw,80px)"></div>
+  </section>
+
+  <section id="education">
+    <p class="label">04 — Education and credentials</p>
+    <h2 class="reveal">Education</h2>
+    <div class="edu reveal">
+      <div><h3 id="eduDegree"></h3><p class="sub" id="eduSchool"></p><p class="sub" id="eduDate"></p><ul class="creds" id="eduCreds" style="margin-top:28px"></ul></div>
+      <div><p class="label">Relevant coursework</p><ul class="courses" id="eduCourses"></ul></div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <p class="label">05 — Questions</p>
+    <h2 class="reveal">Questions</h2>
+    <div id="faqs" style="margin-top:clamp(32px,6vw,80px)"></div>
+  </section>
+
+  <section id="contact" class="contact">
+    <p class="label">06 — Contact</p>
+    <h2 class="reveal">Let's talk</h2>
+    <a class="mail" id="mail"></a>
+    <p class="where" id="where"></p>
+    <div class="links" id="links"><a class="pill" id="bookBtn" href="#schedule" style="background:var(--accent);border-color:var(--accent);color:#160703;font-weight:600">Book a time ↓</a><button class="pill" type="button" data-chat>Ask Hero AI about me</button></div>
+  </section>
+
+  <section id="schedule">
+    <p class="label">07 — Schedule</p>
+    <h2 class="reveal">Book a time</h2>
+    <div class="sched reveal">
+      <div><p class="note" id="calNote"></p><div class="cal" id="cal"></div></div>
+      <div>
+        <h3 id="dayTitle"></h3>
+        <div class="times" id="times"></div>
+        <form id="meetForm" hidden>
+          <input id="meetName" maxlength="80" placeholder="Your name" aria-label="Your name" autocomplete="name" required>
+          <input id="meetEmail" type="email" maxlength="120" placeholder="Your email" aria-label="Your email" autocomplete="email" required>
+          <textarea id="meetTopic" maxlength="600" rows="3" placeholder="What would you like to talk about?" aria-label="What would you like to talk about?"></textarea>
+          <button class="btn">Request this time</button>
+        </form>
+        <p id="meetMsg" role="status" style="color:var(--accent)"></p>
+      </div>
+    </div>
+  </section>
+</main>
+<footer>© <span id="year"></span> <span id="footName"></span><span id="footChat"> · Chat answered by Hero AI, a model running on my own PC.</span></footer>
+
+<dialog id="lightbox" aria-labelledby="lbTitle">
+  <button type="button" class="x" aria-label="Close" onclick="this.closest('dialog').close()">×</button>
+  <video id="lbVideo" controls playsinline></video>
+  <img id="lbImg" alt="">
+  <div class="lbnav" id="lbNav"><button type="button" id="lbPrev" aria-label="Previous capability">←</button><button type="button" id="lbNext" aria-label="Next capability">→</button><b id="lbCap"></b><span id="lbCount"></span></div>
+  <div class="body"><p id="lbCapText" style="margin-top:0"></p><p class="label" id="lbMeta" style="margin-top:28px"></p><h3 id="lbTitle"></h3><div id="lbBody"></div>
+    <a class="pill" id="lbLink" target="_blank" rel="noopener">Visit project →</a></div>
+</dialog>
+
+<canvas id="dog" aria-hidden="true" hidden></canvas>
+<button class="fab" id="fab" type="button" aria-expanded="false" aria-controls="chat" data-chat>Ask Hero</button>
+<section class="chat" id="chat" aria-label="Chat with Hero AI" hidden style="padding:0">
+  <header><div><b>Hero AI</b><small>Ask me anything about <span id="chatName"></span></small></div>
+    <button type="button" id="chatClose" aria-label="Close chat">×</button></header>
+  <div class="log" id="log" aria-live="polite"></div>
+  <div class="chips" id="chips"></div>
+  <form id="chatForm"><input id="chatInput" maxlength="600" placeholder="Ask a question…" aria-label="Your question"
+    autocomplete="off" required><button>Send</button></form>
+</section>
+
+<script>
+// Everything on the page comes from content.json; the chat answers from the same file. Edit that, not this.
+const $ = id => document.getElementById(id);
+const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text) e.textContent = text; return e; };
+const calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+const reveal = new IntersectionObserver(es => es.forEach(e => e.isIntersecting && e.target.classList.add("in")), { threshold: .15 });
+// videos play while on screen and pause when scrolled away
+const onScreen = new IntersectionObserver(es => es.forEach(e =>
+  e.isIntersecting && !calm ? e.target.play().catch(() => {}) : e.target.pause()), { threshold: .5 });
+function clip(src, poster) {
+  const v = el("video"); v.muted = v.loop = v.playsInline = true; v.preload = "metadata"; v.src = src;
+  if (poster) v.poster = poster;
+  v.onerror = () => v.remove();  // file not added yet: the gradient behind it shows instead
+  onScreen.observe(v); return v;
+}
+
+let lb = { p: null, i: 0 };
+function showCap(i) {  // one capability at a time in the lightbox; the arrows step through them
+  const f = lb.p.features || []; if (!f.length) return;
+  lb.i = (i + f.length) % f.length; const x = f[lb.i];
+  $("lbImg").src = x.shot; $("lbImg").alt = x.name; $("lbCap").textContent = x.name; $("lbCapText").textContent = x.text;
+  $("lbCount").textContent = `${lb.i + 1} of ${f.length}`;
+}
+function openProject(p, i = 0) {
+  lb = { p, i }; const has = !!(p.features || []).length;
+  $("lbMeta").textContent = [p.year, ...(p.tags || [])].filter(Boolean).join(" · ");
+  $("lbTitle").textContent = p.title;
+  $("lbBody").replaceChildren(...(p.body || [p.summary]).map(t => el("p", "", t)));
+  $("lbVideo").hidden = !p.video; if (p.video) $("lbVideo").src = p.video;
+  $("lbImg").hidden = $("lbNav").hidden = $("lbCapText").hidden = !has; showCap(i);
+  $("lbLink").hidden = !p.link; if (p.link) $("lbLink").href = p.link;
+  $("lightbox").showModal(); if (p.video) $("lbVideo").play().catch(() => {});
+}
+$("lbPrev").onclick = () => showCap(lb.i - 1); $("lbNext").onclick = () => showCap(lb.i + 1);
+$("lightbox").addEventListener("keydown", e => { if (e.key === "ArrowLeft") showCap(lb.i - 1); if (e.key === "ArrowRight") showCap(lb.i + 1); });
+$("lightbox").onclose = () => $("lbVideo").pause();
+$("lightbox").onclick = e => e.target === $("lightbox") && $("lightbox").close();  // click outside closes
+$("lbVideo").onerror = () => $("lbVideo").hidden = true;
+
+const chips = items => { const u = el("ul", "chips"); u.append(...items.map(t => el("li", "", t))); return u; };
+const tiles = items => { const u = el("ul", "nums"); for (const n of items) { const li = el("li"); li.append(el("b", "", n.value), el("span", "", n.label)); u.append(li); } return u; };
+function render(c) {
+  document.title = `${c.name} — ${c.tagline}`;
+  for (const id of ["brand", "footName", "chatName"]) $(id).textContent = c.name;
+  $("first").textContent = c.name.split(" ")[0];
+  $("name").append(...c.name.split(" ").map(w => el("span", "", w)));
+  $("tagline").textContent = c.tagline; $("intro").textContent = c.intro; $("year").textContent = new Date().getFullYear();
+  if (c.hero_video && !calm) { $("heroVideo").src = c.hero_video; $("heroVideo").onerror = () => $("heroVideo").remove(); }
+  for (const s of c.stats) { const li = el("li"); li.append(el("b", "", s.value), el("span", "", s.label)); $("stats").append(li); }
+  for (const s of [...c.skills, ...c.skills]) $("track").append(el("span", "", s));  // doubled: the loop has no seam
+
+  c.projects.forEach((p, i) => {
+    const row = el("article", "project reveal"), m = el("button", "media"), t = el("div", "ptext"), f = p.features || [];
+    let cur = 0; const img = el("img"), caps = el("ul", "caps"), text = el("p", "captext");
+    m.type = "button"; m.setAttribute("aria-label", "Enlarge " + p.title); m.onclick = () => openProject(p, cur);
+    m.append(el("span", "num", String(i + 1).padStart(2, "0")));
+    const pick = n => {  // choosing a capability swaps the screenshot and its description
+      cur = n; [...caps.children].forEach((li, k) => li.firstChild.setAttribute("aria-pressed", k === n));
+      clearTimeout(pick.t); img.style.opacity = text.style.opacity = 0; img.style.transform = "scale(1.04)";  // fade out, swap, fade in
+      pick.t = setTimeout(() => {
+        text.textContent = f[n].text;
+        img.onload = () => { img.style.opacity = text.style.opacity = 1; img.style.transform = ""; };
+        img.src = f[n].shot; img.alt = p.title + ": " + f[n].name;
+      }, 250);
+    };
+    text.style.transition = "opacity .25s";
+    if (f.length) { img.onerror = () => img.style.opacity = 0; m.append(img); }
+    if (p.video) m.append(clip(p.video, p.poster));
+    m.append(el("span", "open", "Enlarge ⤢"));
+    t.append(el("p", "meta", [p.year, ...(p.tags || [])].filter(Boolean).join(" · ")), el("h3", "", p.title), el("p", "sum", p.summary));
+    if (p.purpose) t.append(el("p", "purpose", p.purpose));
+    if (p.shows) t.append(chips(p.shows));
+    f.forEach((x, n) => { const li = el("li"), b = el("button", "", x.name); b.type = "button"; b.onclick = () => { auto = false; pick(n); }; li.append(b); caps.append(li); });
+    if (f.length) { t.append(caps, text); pick(0); }
+    row.append(m, t); if (p.numbers) row.append(tiles(p.numbers)); $("projects").append(row);
+    // the tour: while the project is on screen, step to the next capability every 4 seconds
+    let auto = !calm && f.length > 1, seen = false, t0 = 0;
+    new IntersectionObserver(es => { seen = es[0].isIntersecting; t0 = performance.now(); }, { threshold: .4 }).observe(row);
+    let over = false; row.addEventListener("pointerenter", () => over = true); row.addEventListener("pointerleave", () => { over = false; t0 = performance.now(); });
+    (function tick(now) {
+      const b = caps.children[cur]?.firstChild;
+      if (!auto) { b?.style.removeProperty("--p"); return; }
+      if (over) t0 = now; else if (seen && !document.hidden) { const k = (now - t0) / 4000; b.style.setProperty("--p", Math.min(k, 1) * 100 + "%");
+        if (k >= 1) { b.style.removeProperty("--p"); pick((cur + 1) % f.length); t0 = now; } }
+      requestAnimationFrame(tick);
+    })(performance.now());
+  });
+
+  if (c.about_video) $("aboutMedia").append(clip(c.about_video));
+  $("aboutText").append(...c.about.map(t => el("p", "", t)));
+  $("expertise").append(...c.expertise.map(t => el("li", "", t)));
+  const list = items => { const u = el("ul"); u.append(...items.map(t => el("li", "", t))); return u; };
+  for (const x of c.experience) {  // native <details>: the row shows the highlights, opening it shows every duty
+    const row = el("details", "xp reveal"), head = el("summary"), mid = el("div"), more = el("div", "more");
+    mid.append(el("h3", "", x.role), el("p", "org", x.org));
+    head.append(el("p", "years", x.years), mid, list(x.highlights));
+    if (x.numbers) more.append(tiles(x.numbers));
+    more.append(el("p", "", x.description));
+    if (x.skills) more.append(chips(x.skills));
+    if (x.links) { const d = el("div", "xlinks"); for (const l of x.links) { const a = el("a", "pill", l.label + " ↗"); a.href = l.url; a.target = "_blank"; a.rel = "noopener"; d.append(a); } more.append(d); }
+    const duties = el("div", "duties");
+    for (const s of x.sections) { const card = el("section"); card.append(el("h4", "", s.title), list(s.items)); duties.append(card); }
+    more.append(duties); row.append(head, more); $("xp").append(row);
+  }
+  $("xpAll").onclick = () => { const rows = [...document.querySelectorAll(".xp")], open = rows.some(r => !r.open);
+    rows.forEach(r => r.open = open); $("xpAll").textContent = open ? "Collapse all" : "Expand all"; };
+  const e = c.education;
+  $("eduDegree").textContent = e.degree; $("eduSchool").textContent = e.school; $("eduDate").textContent = e.date;
+  $("eduCreds").append(...e.credentials.map(t => el("li", "", t))); $("eduCourses").append(...e.coursework.map(t => el("li", "", t)));
+  for (const id of ["navResume", "heroResume"]) { $(id).href = c.resume; $(id).hidden = !c.resume; }
+  if (c.resume) { const a = el("a", "pill", "Resume ↗"); a.href = c.resume; a.target = "_blank"; a.rel = "noopener"; $("links").lastElementChild.before(a); }
+  for (const f of c.faq || []) { const row = el("details", "xp faq reveal"), head = el("summary"), more = el("div", "more");
+    head.append(el("h3", "", f.q)); more.append(el("p", "", f.a)); row.append(head, more); $("faqs").append(row); }
+  $("where").textContent = c.contact.location || "";
+  $("mail").textContent = c.contact.email; $("mail").href = "mailto:" + c.contact.email;
+  for (const l of c.contact.links) { const a = el("a", "pill", l.label + " ↗"); a.href = l.url; a.target = "_blank"; a.rel = "noopener"; $("links").lastElementChild.before(a); }
+  for (const q of c.chat.suggestions) { const b = el("button", "pill", q); b.type = "button"; b.onclick = () => ask(q); $("chips").append(b); }
+  hello = `Hi, I'm Hero, ${c.name.split(" ")[0]}'s AI. Ask me about their work, projects or background.`;
+  offline = `I'm offline right now. Email ${c.contact.email} instead.`;
+  if (c.availability) schedule(c); else $("schedule").hidden = $("bookBtn").hidden = true;
+  // static hosting has no /api: hide the chat and calendar instead of showing them broken. Email and links remain.
+  fetch("/api/slots").then(r => { if (!r.ok) throw 0; }).catch(() => {
+    for (const e of [$("schedule"), $("bookBtn"), $("chat"), document.querySelector('nav a[href="#schedule"]').parentElement, ...document.querySelectorAll("[data-chat]")]) e.hidden = true;
+    $("footChat").hidden = true;
+  });
+  document.querySelectorAll(".reveal").forEach(e => reveal.observe(e));
+}
+
+// the glow in the hero follows the pointer
+$("top").addEventListener("pointermove", e => {
+  $("top").style.setProperty("--mx", e.clientX + "px"); $("top").style.setProperty("--my", e.clientY + "px");
+});
+
+// ---- chat: POST the conversation to /api/chat, stream the reply in as it's written ----
+let hello = "", offline = "", history = [], busy = false;
+const say = (text, cls) => { const m = el("div", "msg " + cls, text); $("log").append(m); $("log").scrollTop = 1e9; return m; };
+function toggleChat(open) {
+  $("chat").hidden = !open; $("fab").setAttribute("aria-expanded", open);
+  if (open) { if (!$("log").children.length) say(hello, "bot"); $("chatInput").focus(); }
+}
+document.querySelectorAll("[data-chat]").forEach(b => b.onclick = () => toggleChat($("chat").hidden));
+$("chatClose").onclick = () => toggleChat(false);
+addEventListener("keydown", e => e.key === "Escape" && !$("chat").hidden && toggleChat(false));
+
+async function ask(text) {
+  if (busy || !text.trim()) return;
+  busy = true; $("chatForm").lastElementChild.disabled = true; $("chips").hidden = true;
+  say(text, "user"); history.push({ role: "user", content: text });
+  const out = say("", "bot wait");
+  try {
+    const res = await fetch("/api/chat", { method: "POST", headers: { "Content-Type": "application/json" },
+                                           body: JSON.stringify({ messages: history }) });
+    if (!res.ok) throw new Error(res.status);
+    const reader = res.body.getReader(), dec = new TextDecoder();
+    for (;;) {
+      const { done, value } = await reader.read(); if (done) break;
+      out.classList.remove("wait"); out.textContent += dec.decode(value, { stream: true }); $("log").scrollTop = 1e9;  // textContent: a reply can't inject HTML
+    }
+    if (!out.textContent) throw new Error("empty");
+    history.push({ role: "assistant", content: out.textContent });
+  } catch {
+    history.pop(); out.textContent = offline;
+  }
+  out.classList.remove("wait"); busy = false; $("chatForm").lastElementChild.disabled = false;
+}
+$("chatForm").onsubmit = e => { e.preventDefault(); const t = $("chatInput").value; $("chatInput").value = ""; ask(t); };
+
+// ---- schedule: open times come from /api/slots; a request posts to /api/meeting and is confirmed later by email ----
+function schedule(c) {
+  const fmt = (d, o) => new Date(d).toLocaleString([], o), key = d => d.toLocaleDateString("en-CA");  // en-CA: YYYY-MM-DD, in the visitor's timezone
+  const press = (box, b) => [...box.children].forEach(x => x.tagName === "BUTTON" && x.setAttribute("aria-pressed", x === b));
+  let slot = "";
+  $("calNote").textContent = `${c.availability.slot_minutes}-minute calls. Times are shown in your timezone (${Intl.DateTimeFormat().resolvedOptions().timeZone}).`;
+  async function load() {
+    const open = await (await fetch("/api/slots")).json(), by = {};
+    for (const s of open) (by[key(new Date(s))] ??= []).push(s);
+    const d = new Date(); d.setHours(12, 0, 0, 0); d.setDate(d.getDate() - d.getDay());  // this week's Sunday, at noon so a clock change can't skip a day
+    const last = key(open.length ? new Date(open.at(-1)) : d);
+    $("cal").replaceChildren(...[..."SMTWTFS"].map(x => el("span", "dow", x)));
+    $("times").replaceChildren(); $("meetForm").hidden = true; slot = "";
+    $("dayTitle").textContent = open.length ? "Pick a day" : "No open times right now";
+    for (let first = true; key(d) <= last || d.getDay(); d.setDate(d.getDate() + 1), first = false) {  // whole weeks, through the last open day
+      const k = key(d), n = (by[k] || []).length, b = el("button", "", String(d.getDate())), title = fmt(d, { weekday: "long", month: "long", day: "numeric" });
+      b.type = "button"; b.disabled = !n; b.setAttribute("aria-label", `${title}, ${n} open times`);
+      if (first || d.getDate() === 1) b.append(el("small", "", fmt(d, { month: "short" })));
+      b.onclick = () => {
+        press($("cal"), b); slot = ""; $("meetForm").hidden = true; $("dayTitle").textContent = title;
+        $("times").replaceChildren(...by[k].map(s => {
+          const t = el("button", "pill", fmt(s, { hour: "numeric", minute: "2-digit" })); t.type = "button";
+          t.onclick = () => { press($("times"), t); slot = s; $("meetForm").hidden = false; $("meetName").focus(); };
+          return t; }));
+      };
+      $("cal").append(b);
+    }
+  }
+  $("meetForm").onsubmit = async e => {
+    e.preventDefault(); const send = $("meetForm").lastElementChild, email = $("meetEmail").value;
+    const time = fmt(slot, { weekday: "long", month: "long", day: "numeric", hour: "numeric", minute: "2-digit" });
+    send.disabled = true;
+    const res = await fetch("/api/meeting", { method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ start: slot, name: $("meetName").value, email, topic: $("meetTopic").value }) }).catch(() => ({}));
+    send.disabled = false;
+    $("meetMsg").textContent = res.ok ? `Request sent for ${time}. This is not booked yet: ${c.name.split(" ")[0]} will confirm by email to ${email}.`
+      : res.status === 409 ? "That time was just taken. Please pick another."
+      : res.status === 400 ? "Please check your name and email." : `Couldn't send the request. Email ${c.contact.email} instead.`;
+    if (res.ok) $("meetForm").reset();
+    if (res.ok || res.status === 409) load().catch(() => {});
+  };
+  // no calendar feed (static hosting, or a server started before the calendar existed): say so, don't vanish
+  load().catch(() => $("dayTitle").textContent = `The calendar is offline. Email ${c.contact.email} instead.`);
+}
+
+fetch("content.json").then(r => r.json()).then(render)
+  .catch(() => document.body.prepend(el("p", "", "Couldn't load content.json. Start the site with: python website/server.py")));
+</script>
+<script src="dog.js"></script>
+</body>
+</html>

@@ -1,0 +1,778 @@
+{
+  "name": "Denver Lo",
+  "tagline": "Equity Research Candidate, U.S. Marine and Builder of His Own Research Tools",
+  "intro": "Finance graduate and U.S. Marine Corps veteran pursuing equity research, focused on Aerospace & Defense, SATCOM and real estate. I build my own research, backtesting and analytics tools in Python, which is also my path into quantitative and AI engineering work. I have run real estate financial operations, asset accountability and internal controls.",
+  "hero_video": "media/hero.mp4",
+  "resume": "Denver-Lo-Resume.pdf",
+  "stats": [
+    {
+      "value": "B.S. Finance",
+      "label": "New Jersey City University, School of Business, 2025"
+    },
+    {
+      "value": "FINRA SIE",
+      "label": "Securities Industry Essentials certification, 2026"
+    },
+    {
+      "value": "NJ Licensed",
+      "label": "Real Estate Salesperson, New Jersey Real Estate Commission"
+    },
+    {
+      "value": "Secret",
+      "label": "security clearance, held during Marine Corps service (separated July 2023), not active"
+    }
+  ],
+  "skills": [
+    "Financial analysis",
+    "Account reconciliation",
+    "Real estate finance",
+    "Risk assessment",
+    "Internal controls",
+    "Regulatory compliance",
+    "Python",
+    "SQL",
+    "Financial modeling",
+    "Equity research",
+    "Backtesting",
+    "LLM integration"
+  ],
+  "projects": [
+    {
+      "title": "Project Hero One",
+      "year": "2026 — Present",
+      "tags": [
+        "Market research",
+        "Python",
+        "FastAPI"
+      ],
+      "summary": "An equity research workstation. One search connects a company to its filings, owners, suppliers, operating sites, news and full price history.",
+      "metric": "~78,000 lines of Python · 200+ test files · free public data sources only",
+      "features": [
+        {
+          "name": "Company history and backtest",
+          "shot": "media/hero-one-backtest.png",
+          "text": "Every company opens on its full record: price since the first trade, each reported quarter from SEC filings, dated events, drawdowns and recessions on one timeline, with return, volatility and valuation figures alongside."
+        },
+        {
+          "name": "Connection map",
+          "shot": "media/hero-one-connections.png",
+          "text": "Relationships researched from public filings: institutional holders from 13F reports, officers and directors, suppliers and customers, subsidiaries, company sites and recent SEC filings."
+        },
+        {
+          "name": "Asset map",
+          "shot": "media/hero-one-map.png",
+          "text": "A company's physical footprint on a map, built from open sources, with layers for connected companies, freight routes, resources and hazards."
+        },
+        {
+          "name": "Live news and research",
+          "shot": "media/hero-one-news.png",
+          "text": "Headlines, articles and research gathered from 50+ sources for a chosen universe, filterable by sentiment and tag."
+        },
+        {
+          "name": "Quote and charting",
+          "shot": "media/hero-one-quote.png",
+          "text": "Live quotes with bid, ask and spread, and a chart workspace with moving averages, VWAP, RSI, MACD and volume profile."
+        }
+      ],
+      "body": [
+        "Hero One is a local, single-operator research workstation. One search takes a company, product, person or place, and every company in view is one click from each page about it.",
+        "It is built on free public and open sources and local inference, with no paid data or metered API. Each observation is recorded with its source and the date it became known.",
+        "Portfolio tracking is paper-only: portfolio managers and analysts run model sleeves, test theses against point-in-time history and report to the operator. No live trading is authorized.",
+        "The project began in April 2026 and is in active development."
+      ],
+      "purpose": "Built to do the groundwork of company research in one place: read the filings, see who owns and supplies the business, and test an idea against its full history before forming a view.",
+      "numbers": [
+        {
+          "value": "78K",
+          "label": "lines of Python"
+        },
+        {
+          "value": "200+",
+          "label": "test files"
+        },
+        {
+          "value": "50+",
+          "label": "news and research sources"
+        },
+        {
+          "value": "$0",
+          "label": "data cost: public sources only"
+        }
+      ],
+      "shows": [
+        "Equity research",
+        "Fundamental analysis",
+        "SEC filings",
+        "Backtesting",
+        "Data pipelines"
+      ]
+    },
+    {
+      "title": "Deal Delta",
+      "year": "2026 — Present",
+      "tags": [
+        "Pricing analysis",
+        "FastAPI",
+        "Python"
+      ],
+      "summary": "A bid/no-bid decision platform for government contracts. It prices what a contract costs to fulfill and compares that with what it pays.",
+      "metric": "5 procurement sources · ~12,800 lines of Python · 100+ automated tests",
+      "features": [
+        {
+          "name": "Opportunity scanner",
+          "shot": "media/deal-delta-scanner.png",
+          "text": "Live and cached federal notices in one feed, each showing set-aside status, an ease-of-delivery score from 0 to 100, place of work and days remaining to respond."
+        },
+        {
+          "name": "Search workspace",
+          "shot": "media/deal-delta-search.png",
+          "text": "Filters by agency, NAICS sector, set-aside, notice type and posting window, with a control over how many live SAM.gov requests are spent."
+        },
+        {
+          "name": "Contract playbook",
+          "shot": "media/deal-delta-playbook.png",
+          "text": "A working reference for turning a match into a compliant bid: acquisition thresholds, how to mirror winning searches, and treating the solicitation as the operating manual."
+        },
+        {
+          "name": "Grant opportunities",
+          "shot": "media/deal-delta-grants.png",
+          "text": "Grants.gov announcements searched separately from contracts, because grants follow a different money model: indirect cost rates and cost share, with no profit."
+        }
+      ],
+      "body": [
+        "Deal Delta scans five government procurement sources: SAM.gov, NJSTART, NYC City Record, LA County RAMP and Grants.gov. It merges them into one searchable local cache.",
+        "It converts each solicitation's attachments (PDF, Word, Excel and zip packages) into a numbered requirements matrix, then tracks sourcing coverage for every requirement.",
+        "AI sourcing agents price the required goods and services. The platform computes cost to fulfill against award value, with overhead and bid markup as adjustable assumptions.",
+        "Pricing is benchmarked against historical USAspending.gov awards by NAICS, PSC and agency, at the 25th percentile, median and 75th percentile.",
+        "Grants are modeled under federal cost principles in 2 CFR 200: the 15% de minimis indirect rate and no profit."
+      ],
+      "purpose": "Built to answer one question before any bid is written: after sourcing every required good and service, is there a margin, and how does the price compare with past awards?",
+      "numbers": [
+        {
+          "value": "5",
+          "label": "procurement sources scanned"
+        },
+        {
+          "value": "12.8K",
+          "label": "lines of Python"
+        },
+        {
+          "value": "100+",
+          "label": "automated tests"
+        },
+        {
+          "value": "0–100",
+          "label": "ease-of-delivery score per notice"
+        }
+      ],
+      "shows": [
+        "Pricing analysis",
+        "Margin analysis",
+        "Comparables",
+        "Cost modeling",
+        "Government contracting"
+      ]
+    },
+    {
+      "title": "Kingdom",
+      "year": "2026",
+      "tags": [
+        "Real estate finance",
+        "Python",
+        "SQLite"
+      ],
+      "summary": "A property portfolio management system. Portfolio value, rent roll, accounting, leasing and compliance are kept in one set of books.",
+      "metric": "Double-entry accounting · rent roll and receivables aging · compliance tracking",
+      "features": [
+        {
+          "name": "Portfolio dashboard",
+          "shot": "media/kingdom-dashboard.png",
+          "text": "Portfolio value over time, equity, occupancy, annual cash flow, delinquency and the month's rent collection on one screen."
+        },
+        {
+          "name": "Rent roll and receivables",
+          "shot": "media/kingdom-rent-roll.png",
+          "text": "Scheduled versus collected rent, the collection rate, each lease's balance and status, and receivables aged at 30, 60 and 90 days."
+        },
+        {
+          "name": "Accounting",
+          "shot": "media/kingdom-accounting.png",
+          "text": "A double-entry ledger with bank reconciliation, a trailing 12-month operating statement, a balance sheet, owner statements and a tax export."
+        },
+        {
+          "name": "Portfolio analytics",
+          "shot": "media/kingdom-analytics.png",
+          "text": "Return on equity, cap rate and cash flow by property, concentration by city and property type, and debt and refinancing risk."
+        },
+        {
+          "name": "Compliance and legal",
+          "shot": "media/kingdom-compliance.png",
+          "text": "Required registrations, insurance policies and certificates tracked per property, with open issues and due dates."
+        },
+        {
+          "name": "Maintenance",
+          "shot": "media/kingdom-maintenance.png",
+          "text": "Work orders on a board from open to done, by priority, with preventive maintenance schedules and vendor records."
+        }
+      ],
+      "body": [
+        "Kingdom brings the financial and operating records of a residential portfolio into one system: properties, units, leases, tenants, loans, insurance, taxes and documents.",
+        "A local language model reads uploaded leases, bills and statements, masks sensitive numbers and queues each document for review before it is filed.",
+        "It is written in Python using only the standard library, with a SQLite database and an automated test suite.",
+        "All screenshots here use fictional sample data, not real properties or tenants."
+      ],
+      "purpose": "Built to replace separate spreadsheets with one system of record, where every rent payment posts to a ledger and every property can be measured on return, cash flow and risk.",
+      "numbers": [
+        {
+          "value": "44",
+          "label": "linked data tables"
+        },
+        {
+          "value": "6",
+          "label": "operating areas shown here"
+        },
+        {
+          "value": "0",
+          "label": "outside dependencies: Python standard library only"
+        },
+        {
+          "value": "30/60/90",
+          "label": "day receivables aging"
+        }
+      ],
+      "shows": [
+        "Real estate finance",
+        "Double-entry accounting",
+        "Reconciliation",
+        "Underwriting",
+        "Compliance"
+      ]
+    }
+  ],
+  "about_video": "media/about.mp4",
+  "about": [
+    "I am a finance professional and U.S. Marine Corps veteran. My work centers on accurate records, sound controls and analysis that leadership can act on.",
+    "In the Marine Corps I managed my battalion's communications security account and was personally accountable for more than $30 million in equipment. Today I manage financial operations for my family's residential real estate portfolio in Hudson County, New Jersey.",
+    "I hold a B.S. in Finance from New Jersey City University, the FINRA Securities Industry Essentials certification and a New Jersey real estate license. I am pursuing equity research first, with a coverage interest in Aerospace & Defense and SATCOM, where I operated the equipment, and in real estate and REITs, where I run the books. Quantitative finance and AI engineering are where the software I build leads."
+  ],
+  "expertise": [
+    "Financial analysis, account reconciliation and real estate finance",
+    "Risk assessment, internal controls and regulatory compliance",
+    "Equity research, backtesting and quantitative analysis",
+    "Python, SQL, Excel, FastAPI and large language model integration"
+  ],
+  "experience": [
+    {
+      "years": "Feb 2025 — Present",
+      "role": "Property Management and Financial Operations",
+      "org": "KSR Realty LLC (family-owned) · Bayonne, NJ",
+      "highlights": [
+        "Manage financial operations for 13 active properties with 26 units in Hudson County, NJ",
+        "Took 5 purchase loans through closing with lenders",
+        "Reconcile bank deposits to the rent roll across the portfolio"
+      ],
+      "description": "I run the financial operations and day-to-day management of my family's privately held residential portfolio in Hudson County, New Jersey: 13 active properties with 26 rental units, with monthly rents of $2,600–$3,600 per unit. The role covers the full cycle, from recording a rent payment to closing the books, financing a purchase and supporting a court filing. I also handle work on properties owned by outside clients.",
+      "sections": [
+        {
+          "title": "Financial operations and accounting",
+          "items": [
+            "Maintain financial records for 13 properties by recording rent receipts, operating expenses and repairs in property-level Excel ledgers.",
+            "Reconcile bank deposits to the rent roll and close the books for each property monthly.",
+            "Organize income and expense records and supporting documentation for each property's annual tax filing.",
+            "Process contractor invoices and recurring bills, allocating each expense to the correct property."
+          ]
+        },
+        {
+          "title": "Acquisitions and financing",
+          "items": [
+            "Managed the purchase-loan financing process with lenders on 5 loans, from application through closing."
+          ]
+        },
+        {
+          "title": "Collections and regulatory compliance",
+          "items": [
+            "Prepare rent ledgers and verified complaints, and coordinate landlord-tenant court filings with outside counsel.",
+            "File Jersey City landlord registration statements and administer security deposits and returns."
+          ]
+        },
+        {
+          "title": "Leasing and owner reporting",
+          "items": [
+            "Prepare ledgers, receipts and financial summaries for owners of each property.",
+            "Draft and revise lease agreements."
+          ]
+        },
+        {
+          "title": "Property operations and vendor management",
+          "items": [
+            "Coordinate maintenance, repairs and contractors, and inspect units between tenants.",
+            "Complete hands-on work for the portfolio and outside clients, including plumbing, electrical and painting projects."
+          ]
+        }
+      ],
+      "numbers": [
+        {
+          "value": "13",
+          "label": "active properties"
+        },
+        {
+          "value": "26",
+          "label": "rental units"
+        },
+        {
+          "value": "5",
+          "label": "purchase loans taken through closing"
+        },
+        {
+          "value": "$2,600–$3,600",
+          "label": "monthly rent per unit"
+        }
+      ],
+      "skills": [
+        "Financial analysis",
+        "Account reconciliation",
+        "Real estate finance",
+        "Bookkeeping",
+        "Regulatory compliance"
+      ]
+    },
+    {
+      "years": "Jan 2026 — Present",
+      "role": "Licensed Real Estate Salesperson",
+      "org": "Provident Legacy Realtors · Bayonne, NJ",
+      "highlights": [
+        "Licensed by the New Jersey Real Estate Commission, January 2026",
+        "Hudson County residential market knowledge"
+      ],
+      "description": "I hold a New Jersey Real Estate Salesperson License and am affiliated with a Bayonne brokerage on a contract basis. The licence adds formal training in contracts, agency, valuation and real estate law to hands-on portfolio experience.",
+      "sections": [
+        {
+          "title": "Licensing and market knowledge",
+          "items": [
+            "Earned the New Jersey Real Estate Salesperson License by completing coursework in contracts, agency, real estate finance, valuation and New Jersey real estate law.",
+            "Bring Hudson County residential market knowledge from day-to-day management of a 13-property, 26-unit portfolio."
+          ]
+        }
+      ],
+      "numbers": [
+        {
+          "value": "Jan 2026",
+          "label": "licensed by the NJ Real Estate Commission"
+        }
+      ],
+      "skills": [
+        "Real estate",
+        "Real estate finance",
+        "Market analysis"
+      ]
+    },
+    {
+      "years": "May 2020 — Jul 2023",
+      "role": "Key Management Infrastructure (KMI) Primary, COMSEC Account Manager",
+      "org": "United States Marine Corps · 3rd Battalion, 11th Marines · Twentynine Palms, CA",
+      "highlights": [
+        "Personally accountable for $30M+ in communications equipment",
+        "Passed 100% of COMSEC inspections and random audits",
+        "Selected as a Lance Corporal for a billet normally held by a Sergeant"
+      ],
+      "description": "I managed the battalion's communications security (COMSEC) account in the NSA Key Management Infrastructure for 3rd Battalion, 11th Marines, 1st Marine Division. I was selected for the role as a Lance Corporal (E-3); it is normally held by a Sergeant (E-5). The work was custody, control and audit: every cryptographic key and every piece of equipment had to be accounted for at all times. I held a Secret clearance during service; it is not active since I separated in July 2023.",
+      "sections": [
+        {
+          "title": "COMSEC and key management",
+          "items": [
+            "Secured the battalion's encrypted communications by ordering, distributing and accounting for electronic keying material.",
+            "Maintained chain of custody for controlled cryptographic items through receipt, transfer, storage, issue, inventory and destruction."
+          ]
+        },
+        {
+          "title": "Asset and inventory management",
+          "items": [
+            "Held personal accountability for $30M+ in communications equipment, including about 1,000 radio sets, tactical vehicles, SATCOM antennas and network hardware."
+          ]
+        },
+        {
+          "title": "Compliance and audit",
+          "items": [
+            "Passed 100% of COMSEC inspections at the unit (monthly), battalion (quarterly) and regiment (semiannual) levels, plus random audits.",
+            "Kept appointment letters, authorization letters, access rosters and security records current for the unit and subordinate units."
+          ]
+        },
+        {
+          "title": "Risk and cost analysis",
+          "items": [
+            "Analyzed maintenance costs, failure rates and replacement cycles, and presented quarterly recommendations that informed senior leadership's repair and replacement decisions."
+          ]
+        },
+        {
+          "title": "Policy, training and emergency planning",
+          "items": [
+            "Wrote command policies, standard operating procedures, handling instructions and emergency action and destruction plans.",
+            "Taught KMI classes and conducted emergency action drills."
+          ]
+        },
+        {
+          "title": "Process improvement",
+          "items": [
+            "Found double-issued radios and equipment when simultaneous operations and exercises stretched the account, then documented the discrepancies, corrected the records and recovered the equipment.",
+            "Built an Excel tracker showing the availability of radios, keys and equipment, so an item could not be issued twice.",
+            "Built a calendar and checklist system for cryptographic changeovers and section projects, after which late actions in the section were rare."
+          ]
+        },
+        {
+          "title": "Leadership and cross-section support",
+          "items": [
+            "Led 12+ operators day to day in communications operations as the KMI manager.",
+            "Developed each month's new Marines from the schoolhouse into working operators.",
+            "Filled in as a technician, network operator and section leader when the section was short of people.",
+            "Settled repair-priority conflicts between radio operators and technicians by setting priorities with the technicians, assisting their work and handling logistics to keep the unit operationally ready."
+          ]
+        }
+      ],
+      "numbers": [
+        {
+          "value": "$30M+",
+          "label": "of equipment on my accountable record"
+        },
+        {
+          "value": "100%",
+          "label": "of inspections and audits passed"
+        },
+        {
+          "value": "~1,000",
+          "label": "radio sets accounted for"
+        },
+        {
+          "value": "12+",
+          "label": "operators led day to day"
+        }
+      ],
+      "skills": [
+        "Internal controls",
+        "Asset management",
+        "Risk assessment",
+        "Audit readiness",
+        "Communications security"
+      ],
+      "links": [
+        {
+          "label": "USMC EKMS policy (MCO 2281.1A)",
+          "url": "https://www.marines.mil/Portals/1/MCO%202281%201A.pdf"
+        }
+      ]
+    },
+    {
+      "years": "Jul 2019 — Jul 2023",
+      "role": "Transmission System Operator (MOS 0621), Corporal",
+      "org": "United States Marine Corps · Twentynine Palms, CA",
+      "highlights": [
+        "Supported communications for 16–24 battalion field exercises per year",
+        "Operated HF, VHF, UHF and MUOS satellite networks",
+        "Trained and mentored junior Marines"
+      ],
+      "description": "I installed, operated and maintained the tactical radio and satellite networks that carried command and fire-support communications for an artillery battalion, in garrison and in the field. If communications failed, the battalion could not fire, so the work depended on planning backups before anything broke, and on improvising when plans changed at short notice.",
+      "sections": [
+        {
+          "title": "Communication networks",
+          "items": [
+            "Installed, operated and maintained tactical HF, VHF, UHF and MUOS satellite networks.",
+            "Executed frequency and cryptographic changes and processed and logged message traffic."
+          ]
+        },
+        {
+          "title": "Project and operations management",
+          "items": [
+            "Supported communications for 16–24 battalion field exercises per year by planning frequencies, keys, backup communication paths and equipment staging and recovery.",
+            "Provided COMSEC support to U.S. military and civilian participants during a month-long field exercise.",
+            "Wrote the MUOS standard operating procedures, a detailed account of communications, operations and the MUOS system, while keeping normal operations and field exercises running.",
+            "Coordinated a same-night shift of the communications network from VHF to MUOS after a last-minute change, delegating to a team of Marines so operations ran on schedule."
+          ]
+        },
+        {
+          "title": "Operating under pressure",
+          "items": [
+            "Kept communications running in 100-degree field conditions when heat and faulty cryptographic keys took radios down, by building an improvised cooling chamber from spare gear and setting up backup HF links with copper wire.",
+            "Coordinated medical evacuation for heat casualties with medical personnel and the hospital while fire missions continued."
+          ]
+        },
+        {
+          "title": "Communication equipment",
+          "items": [
+            "Performed preventive maintenance and troubleshooting on radios, antennas, SATCOM terminals and cryptographic devices.",
+            "Logged equipment faults and repair status, providing the data behind quarterly cost and failure analyses."
+          ]
+        },
+        {
+          "title": "Leadership and training",
+          "items": [
+            "Trained and mentored junior Marines on equipment, procedures and accountability standards.",
+            "Led strike groups in field exercises, coordinating simulated strikes and vehicle operations on top of communications."
+          ]
+        }
+      ],
+      "numbers": [
+        {
+          "value": "16–24",
+          "label": "battalion field exercises supported per year"
+        },
+        {
+          "value": "4",
+          "label": "network types: HF, VHF, UHF and MUOS satellite"
+        }
+      ],
+      "skills": [
+        "Project management",
+        "Operations management",
+        "Troubleshooting",
+        "Training",
+        "Team leadership"
+      ],
+      "links": [
+        {
+          "label": "MOS 0621 on Marine Corps COOL",
+          "url": "https://www.cool.osd.mil/usmc/moc/index.html?moc=0621&tab=overview"
+        }
+      ]
+    },
+    {
+      "years": "Feb 2017 — Jul 2019",
+      "role": "Finance and Operations Lead",
+      "org": "Emerson Amusement LLC · Jacksonville, FL",
+      "highlights": [
+        "Reconciled $100K+ in daily processing cash flow across three locations",
+        "Ran payroll for 15+ employees",
+        "Prepared cash-flow reports by location for the owners"
+      ],
+      "description": "I ran the cash and the books for a cash-intensive local entertainment business with three locations, 15+ employees and no formal accounting department. Every dollar was counted, balanced, deposited and recorded, and the owners relied on my reports to see how each location was performing.",
+      "sections": [
+        {
+          "title": "Cash management and controls",
+          "items": [
+            "Reconciled $100K+ in daily processing cash flow by counting the safe, issuing starting banks and balancing every drawer to recorded transactions at each location.",
+            "Investigated and documented every overage and shortage.",
+            "Prepared daily bank deposits reconciled to the ledger."
+          ]
+        },
+        {
+          "title": "Accounting and reporting",
+          "items": [
+            "Prepared cash-flow reports by location for the owners.",
+            "Recorded daily receipts, disbursements, expenses and supplier bills in paper ledgers and Excel.",
+            "Kept financial records accurate and complete for IRS and Florida business reporting."
+          ]
+        },
+        {
+          "title": "Payroll",
+          "items": [
+            "Calculated hours and pay and maintained payroll records for 15+ employees."
+          ]
+        },
+        {
+          "title": "Operations management and customer service",
+          "items": [
+            "Managed daily opening and closing, cash coverage and owner communication across three locations.",
+            "Resolved customer account issues promptly and professionally."
+          ]
+        }
+      ],
+      "numbers": [
+        {
+          "value": "$100K+",
+          "label": "daily processing cash flow reconciled"
+        },
+        {
+          "value": "15+",
+          "label": "employees on payroll"
+        },
+        {
+          "value": "3",
+          "label": "locations"
+        }
+      ],
+      "skills": [
+        "Cash management",
+        "Account reconciliation",
+        "Bookkeeping",
+        "Payroll",
+        "Operations management"
+      ]
+    }
+  ],
+  "education": {
+    "degree": "Bachelor of Science, Finance",
+    "school": "New Jersey City University, School of Business · Jersey City, NJ",
+    "date": "December 2025 · GPA 3.7",
+    "coursework": [
+      "Investment Principles",
+      "Portfolio Analysis",
+      "Managerial Finance",
+      "Seminar in Corporate Finance",
+      "International Finance",
+      "Capital Markets and Financial Institutions",
+      "Money and Banking",
+      "Essentials of Financial Planning",
+      "Business Statistics",
+      "Introduction to Data Science",
+      "Spreadsheet Applications in Business and Finance",
+      "Macroeconomics",
+      "Microeconomics",
+      "Foreign Trade",
+      "Legal Environment of Business",
+      "Business Information Systems"
+    ],
+    "credentials": [
+      "Securities Industry Essentials (SIE), FINRA, March 2026",
+      "Real Estate Salesperson License, New Jersey Real Estate Commission, January 2026",
+      "Next: CFA Program, and FINRA Series 7 and 63 (these require firm sponsorship)"
+    ]
+  },
+  "contact": {
+    "email": "deltalima2001@gmail.com",
+    "links": [
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/dr-lo/"
+      },
+      {
+        "label": "GitHub",
+        "url": "https://github.com/DrLo-Hero"
+      }
+    ],
+    "location": "Bayonne, NJ · Jersey City or Lower Manhattan preferred · open to relocation, hybrid or on-site · can start soon"
+  },
+  "availability": {
+    "timezone": "Eastern Time",
+    "slot_minutes": 30,
+    "notice_hours": 24,
+    "horizon_days": 21,
+    "hours": {
+      "mon": [
+        [
+          "09:00",
+          "17:00"
+        ]
+      ],
+      "tue": [
+        [
+          "09:00",
+          "17:00"
+        ]
+      ],
+      "wed": [
+        [
+          "09:00",
+          "17:00"
+        ]
+      ],
+      "thu": [
+        [
+          "09:00",
+          "17:00"
+        ]
+      ],
+      "fri": [
+        [
+          "09:00",
+          "17:00"
+        ]
+      ]
+    },
+    "blocked": []
+  },
+  "chat": {
+    "suggestions": [
+      "What is Denver's professional background?",
+      "What has he built?",
+      "What roles is he pursuing?"
+    ],
+    "facts": [
+      "Denver Lo is based in Bayonne, NJ. He prefers Jersey City or Lower Manhattan and is willing to relocate for the right role; hybrid or on-site is fine.",
+      "He is pursuing three paths: equity research, AI engineering and quantitative finance.",
+      "His equity research interests are Aerospace & Defense and SATCOM, from operating military satellite radio networks, and Real Estate and REITs, from his licence and property finance work. His AI engineering and quant case rests on Hero One, Deal Delta and Kingdom: backtesting, data pipelines and local language model integration.",
+      "The $30M+ figure is the listed price of everything on his accountable record: about 1,000 radio sets, plus tactical vehicles, SATCOM antennas, amplifiers, power sources and network hardware.",
+      "KMI stands for Key Management Infrastructure, the NSA-run system for ordering, distributing and accounting for cryptographic keys. It replaced EKMS.",
+      "He held a Secret clearance during his Marine Corps service. It is not active: he separated in July 2023.",
+      "His degree is a B.S. in Finance from New Jersey City University, conferred December 2025, GPA 3.705.",
+      "He is a self-taught Python developer who builds with AI coding tools and large language models, and can explain his own code.",
+      "Screenshots of Kingdom on this site use fictional sample data, not real properties or tenants.",
+      "His resume can be viewed from the Resume link on this site.",
+      "To meet with Denver, pick an open time on the calendar in the Schedule section of this site. A request is not a booking: he confirms each one by email.",
+      "Deal Delta, Kingdom and Hero AI run language models locally through Ollama rather than a cloud service.",
+      "Hero AI is the assistant answering in this chat window. Denver built it as a local career automation agent with an encrypted data vault and a fact-checker that blocks unverified figures.",
+      "Project Hero One is a research tool with paper portfolios only; it does not trade live money and makes no claim of trading profits.",
+      "The pixel German Shepherd that follows the pointer around this site is Hero, Denver's own German Shepherd, and Hero AI is named after him: the dog is the original assistant. Denver got him in Florida. Hero was born in December 2014, is all bark and no bite, and gets jealous of the cats.",
+      "Outside work, Denver's interests are investing and following the markets, building software and tinkering with local AI models, travel, and real estate. What he likes about investing is building wealth and finding real value in a business.",
+      "A free weekend usually goes to coding his own projects with AI tools, unless there are plans or friends invite him out. He likes to stay engaged in something productive. He is a night owl, and drinks both coffee and tea.",
+      "Denver is adventurous and will try almost anything once: he has been skydiving and scuba diving, snowboards and holds a motorcycle licence. He says he is not especially good at any of them, but he is always up for it. Next he wants to take up golf and learn to fly, and he is getting back into a gym routine.",
+      "Anime he likes: Frieren, The Apothecary Diaries, Vinland Saga, Cyberpunk: Edgerunners, Arcane and One Piece. He is not much of a movie or TV watcher otherwise.",
+      "He plays League of Legends, the game Arcane is based on, and plenty of other games when friends are playing; gaming is a social thing for him.",
+      "He listens to all kinds of music and has been into country lately.",
+      "Books he reads are about strategy, habits and wealth: Atomic Habits, Think and Grow Rich and others like them. He follows market news podcasts and watches videos on trading and AI development.",
+      "Favorite foods: sushi, Japanese curry, ramen, Chinese bakery, hotpot, Korean BBQ, lobster, crab and a good steak. He is a big meat eater and jokes that fruit and vegetables are off the table.",
+      "He loves to travel. He has been to Japan, China, Hong Kong and Singapore and would go back to all of them; on his list are a world cruise, New Zealand and Antarctica.",
+      "The people who inspire him are Jim Simons and Ed Thorp, who beat the markets with mathematics and are the model for his interest in quantitative finance, David Goggins for discipline, and Elon Musk for building ambitious things.",
+      "Three words friends would use for Denver: reliable, adaptive and intelligent, in a practical, figure-it-out way more than a bookish one. He decides with logic and data and learns best by building, which is how he taught himself Python.",
+      "Three things the Marine Corps taught him that he still uses every day: stay adaptive, trust but verify, and be on time. Trust but verify is how he ran an audited COMSEC account, and it is why Hero AI has a fact-checker.",
+      "He is good with his hands at repair more than building from scratch: he has repaired properties and military radio equipment.",
+      "A fun fact people don't expect: despite being a Marine, he is not a heavy drinker or a smoker.",
+      "Denver's top three strengths are staying calm under pressure, resourcefulness and adaptability. Calm: in a field exercise in 100-degree heat while fire missions continued, several Marines suffered heat stroke and his communications team helped coordinate the medical evacuation without dropping operations. Resourceful: when radios failed from bad crypto keys and heat, he built an improvised cooling chamber from spare gear and set up HF links on copper wire to keep communications up. Adaptive: when techs were sent to the field, he filled in as a technician, network operator and section leader.",
+      "Denver's honest weakness: he was trained to act rather than wait for an explanation, so he sometimes starts a task on his own read of it. That occasionally means wasted effort, and he now clarifies the goal and asks first. He is also working on his coding depth and on corporate-level finance experience, because school and the fleet are never quite the same.",
+      "A mistake Denver learned from: as KMI manager he took leave during a cryptographic changeover and forgot to remind his backups, so several keys expired. He built a calendar and checklist system for every project afterward, and his section rarely had late issues after that.",
+      "Hardest problems Denver has solved: he wrote the battalion's MUOS standard operating procedures while keeping normal operations and field exercises running, and he coordinated a same-night shift of the whole communications network from VHF to MUOS by delegating to a group of Marines. He also found double-issued equipment that had left record discrepancies, fixed it, and built an Excel tracker for radios, keys and equipment.",
+      "Leadership: as KMI/EKMS manager Denver trained each monthly group of new Marines into operators, led 12+ operators day to day, and led strike groups and simulated strikes in field exercises. With an underperformer he talks privately, clarifies expectations, asks about obstacles, and helps without solving it for them. He takes criticism as data, reflects and improves, and does not get defensive.",
+      "Working style: Denver does best with high standards, direct feedback, autonomy and a clear goal (commander's intent). He likes working independently but values a team for performance and capability. He taught himself most of what he builds by trial and error.",
+      "Why finance and these paths: finance is understanding value and business. Equity research is analysis of data, from management to financial records, to determine value. Quant is data, code and probabilities. AI engineering builds tools that scale research. Each means defining a problem, finding an edge, testing it and producing real results.",
+      "Why the Marines, and why leave real estate: he joined for the challenge and independence, wanting to earn his own way, and it gave him discipline and accountability. He wants to move from operating a small portfolio to more analytical and quantitative work at a larger scale: building and investing, not just operating.",
+      "Where Denver wants to be in five years: in a more senior role in equity research, quant or AI engineering, in charge of his own decisions and a reliable team, and holding the CFA and securities licences such as the Series 7 and 63.",
+      "What sets Denver apart: Marine Corps discipline and operations experience, a finance degree earned in about two years while working, real estate analytical fundamentals, and AI tools he built himself. He has no formal equity research or engineering job yet, and says he has proven he learns fast by holding every communications role in his section.",
+      "On coding with AI: Denver understands the architecture and data flow of his projects well enough to debug them and uses AI to speed up and test changes. He does not call himself a senior engineer, but can write a basic working program from scratch.",
+      "Denver is targeting entry-level roles: analyst and associate programs, graduate programs, and junior analyst or engineer positions, and he is open to contract work as a way in.",
+      "His path: Denver grew up in Florida, joined the Marine Corps, and moved to New Jersey after his service to join his family. He can start soon and is open to relocation, travel, contract roles and analyst programs. For compensation, ask him by email.",
+      "Investment philosophy: quality and value with quant discipline, meaning companies with high potential in their industry and a clear advantage or unique capability. His own research tool, Hero One, sometimes disagrees with his view, and he treats that as data. For example, it favored AMD over NVDA and AMD outperformed. These are views, not investment advice.",
+      "Denver is most proud of his Marine Corps experience, the team he built and developed with, and developing and implementing the MUOS operation and its procedures.",
+      "KSR Realty LLC is Denver's family's business, a family-owned residential portfolio. He runs its financial operations day to day and says so openly.",
+      "His GitHub is https://github.com/DrLo-Hero."
+    ]
+  },
+  "faq": [
+    {
+      "q": "Which role are you targeting?",
+      "a": "Equity research first: entry-level analyst and associate roles or programs, with a coverage interest in Aerospace & Defense and SATCOM, and in real estate and REITs. I built Hero One, Deal Delta and Kingdom to do that research work, which also makes me a fit for junior quantitative and AI engineering roles. I am open to contract work as a way in."
+    },
+    {
+      "q": "Why finance, and why leave real estate operations?",
+      "a": "Finance is the work of understanding what a business is worth. Running a small portfolio taught me the fundamentals: rent rolls, reconciliations, financing and cash flow. I want to apply that analysis at a larger scale, to building and investing rather than only operating."
+    },
+    {
+      "q": "Is KSR Realty a family business?",
+      "a": "Yes. KSR Realty is my family's residential portfolio in Hudson County. I run its financial operations: ledgers, monthly bank-to-rent-roll reconciliations, owner reporting, purchase-loan financing and landlord-tenant compliance."
+    },
+    {
+      "q": "How much of your code is written by AI?",
+      "a": "I build with AI coding tools, and I say so. I design each system, decide its architecture and data flow, review every change, write the tests and debug the failures. I can explain any module of my projects and write a basic working program from scratch. I do not call myself a senior engineer."
+    },
+    {
+      "q": "How do you know the AI output is correct?",
+      "a": "The way I ran a COMSEC account: trust but verify. Kingdom queues every document the model reads for my review before anything is filed. Hero One stores each data point with its source and the date it became known. Hero AI, the assistant on this site, has a fact-checker that blocks figures it cannot verify."
+    },
+    {
+      "q": "How do you keep a backtest honest?",
+      "a": "Hero One records when each data point became public, so a test of an idea only uses what was known on that date. Portfolios are paper only: the tool makes no claim of trading profits and runs no live money."
+    },
+    {
+      "q": "Is your security clearance active?",
+      "a": "No. I held a Secret clearance during my Marine Corps service and separated in July 2023."
+    },
+    {
+      "q": "What credentials are next?",
+      "a": "I hold the FINRA SIE and a New Jersey real estate license. Next are the CFA Program and the FINRA Series 7 and 63, which need a sponsoring firm."
+    },
+    {
+      "q": "Tell me about a mistake you learned from.",
+      "a": "As KMI manager I went on leave during a cryptographic changeover and did not remind my backups, so several keys expired. I took ownership, then built a calendar and checklist system for every changeover and section project. After that, late actions in my section were rare."
+    },
+    {
+      "q": "Where and when can you start?",
+      "a": "I live in Bayonne, NJ and prefer Jersey City or Lower Manhattan. I am open to relocation, hybrid or on-site work, and I can start soon. For compensation, email me."
+    }
+  ]
+}
