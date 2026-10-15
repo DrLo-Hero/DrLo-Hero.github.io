@@ -183,12 +183,15 @@ dialog::backdrop { background:#000c; backdrop-filter: blur(6px); }
 dialog video { display:block; width:100%; max-height:60vh; background:#000; }
 dialog .body { padding: clamp(20px, 4vw, 44px); }
 dialog h3 { font-size: clamp(32px, 5vw, 60px); margin-bottom:8px; } dialog p { color:#cfcbc3; max-width:68ch; }
-dialog .x { position:sticky; float:right; top:14px; margin:14px 14px -52px 0; z-index:2; width:38px; height:38px; border-radius:50%; border:0;
-  background:#000a; color:#fff; font-size:20px; cursor:pointer; }
+dialog .x { position:fixed; top:16px; right:16px; z-index:2; width:44px; height:44px; border-radius:50%; border:1px solid #fff4;
+  background:#000c; color:#fff; font-size:22px; cursor:pointer; }  /* pinned to the screen corner: never scrolls away or sits under the image */
 
 /* the dog */
 #dog { position:fixed; left:0; top:0; z-index:25; pointer-events:none; image-rendering:pixelated; will-change:transform; }
 
+/* shown on the live (static) site only */
+.wip { position:fixed; inset:auto 0 0; z-index:40; padding:10px var(--pad); background:var(--accent); color:#160703;
+  font-size:14px; font-weight:600; text-align:center; }
 /* chat */
 .fab { position:fixed; right:20px; bottom:20px; z-index:30; display:flex; align-items:center; gap:10px; padding:14px 20px;
   border:0; border-radius:999px; background:var(--accent); color:#160703; font-weight:700; box-shadow:0 10px 40px #ff6a3d55; }
@@ -317,7 +320,7 @@ dialog .x { position:sticky; float:right; top:14px; margin:14px 14px -52px 0; z-
 <footer>© <span id="year"></span> <span id="footName"></span><span id="footChat"> · Chat answered by Hero AI, a model running on my own PC.</span></footer>
 
 <dialog id="lightbox" aria-labelledby="lbTitle">
-  <button type="button" class="x" aria-label="Close" onclick="this.closest('dialog').close()">×</button>
+  <button type="button" class="x" id="lbClose" aria-label="Close">×</button>
   <video id="lbVideo" controls playsinline></video>
   <img id="lbImg" alt="">
   <div class="lbnav" id="lbNav"><button type="button" id="lbPrev" aria-label="Previous capability">←</button><button type="button" id="lbNext" aria-label="Next capability">→</button><b id="lbCap"></b><span id="lbCount"></span></div>
@@ -325,6 +328,7 @@ dialog .x { position:sticky; float:right; top:14px; margin:14px 14px -52px 0; z-
     <a class="pill" id="lbLink" target="_blank" rel="noopener">Visit project →</a></div>
 </dialog>
 
+<div class="wip" id="wip" role="status" hidden>🚧 Under construction: this site is a first version and still being built.</div>
 <canvas id="dog" aria-hidden="true" hidden></canvas>
 <button class="fab" id="fab" type="button" aria-expanded="false" aria-controls="chat" data-chat>Ask Hero</button>
 <section class="chat" id="chat" aria-label="Chat with Hero AI" hidden style="padding:0">
@@ -373,7 +377,7 @@ function openProject(p, i = 0) {
 $("lbPrev").onclick = () => showCap(lb.i - 1); $("lbNext").onclick = () => showCap(lb.i + 1);
 $("lightbox").addEventListener("keydown", e => { if (e.key === "ArrowLeft") showCap(lb.i - 1); if (e.key === "ArrowRight") showCap(lb.i + 1); });
 $("lightbox").onclose = () => $("lbVideo").pause();
-$("lightbox").onclick = e => e.target === $("lightbox") && $("lightbox").close();  // click outside closes
+$("lightbox").onclick = e => (e.target === $("lightbox") || e.target.closest("#lbClose")) && $("lightbox").close();  // X or click outside closes
 $("lbVideo").onerror = () => $("lbVideo").hidden = true;
 
 const chips = items => { const u = el("ul", "chips"); u.append(...items.map(t => el("li", "", t))); return u; };
@@ -460,7 +464,7 @@ function render(c) {
   // static hosting has no /api: hide the chat and calendar instead of showing them broken. Email and links remain.
   fetch("/api/slots").then(r => { if (!r.ok) throw 0; }).catch(() => {
     for (const e of [$("schedule"), $("bookBtn"), $("chat"), document.querySelector('nav a[href="#schedule"]').parentElement, ...document.querySelectorAll("[data-chat]")]) e.hidden = true;
-    $("footChat").hidden = true;
+    $("footChat").hidden = true; $("wip").hidden = false;
   });
   document.querySelectorAll(".reveal").forEach(e => reveal.observe(e));
 }
