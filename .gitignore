@@ -1,0 +1,15 @@
+# public site only: never commit secrets, server code or private data
+.env*
+*.key
+*.pem
+*.p12
+*secret*
+*token*
+*.py
+*.pyc
+__pycache__/
+meetings.json
+*vault*
+*.sqlite
+*.db
+*.log
