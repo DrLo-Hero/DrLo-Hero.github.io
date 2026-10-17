@@ -5,7 +5,15 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Portfolio</title>
+<title>Denver Lo — Equity Research Candidate, U.S. Marine and Builder of His Own Research Tools</title>
+<!-- static on purpose: link previews (LinkedIn, email, Slack) don't run the script that fills the page -->
+<meta name="description" content="Finance graduate and U.S. Marine Corps veteran pursuing equity research, financial analysis and quantitative roles. Builds his own Python research and backtesting tools.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://drlo-hero.github.io/">
+<meta property="og:title" content="Denver Lo — Equity Research Candidate">
+<meta property="og:description" content="Finance graduate and U.S. Marine Corps veteran pursuing equity research, financial analysis and quantitative roles. Builds his own Python research and backtesting tools.">
+<meta property="og:image" content="https://drlo-hero.github.io/media/hero-one-backtest.png">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&display=swap" rel="stylesheet">
@@ -432,6 +440,7 @@ function render(c) {
   });
 
   if (c.about_video) $("aboutMedia").append(clip(c.about_video));
+  else { $("aboutMedia").remove(); $("about").style.display = "block"; }  // no video or photo yet: no empty box
   $("aboutText").append(...c.about.map(t => el("p", "", t)));
   $("expertise").append(...c.expertise.map(t => el("li", "", t)));
   const list = items => { const u = el("ul"); u.append(...items.map(t => el("li", "", t))); return u; };

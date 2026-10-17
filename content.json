@@ -1,7 +1,7 @@
 {
   "name": "Denver Lo",
   "tagline": "Equity Research Candidate, U.S. Marine and Builder of His Own Research Tools",
-  "intro": "Finance graduate and U.S. Marine Corps veteran pursuing equity research, focused on Aerospace & Defense, SATCOM and real estate. I build my own research, backtesting and analytics tools in Python, which is also my path into quantitative and AI engineering work. I have run real estate financial operations, asset accountability and internal controls.",
+  "intro": "Finance graduate and U.S. Marine Corps veteran pursuing equity research, financial analysis and quantitative roles. I build my own research, backtesting and analytics tools in Python, which connects all three paths. I have run real estate financial operations, asset accountability and internal controls.",
   "hero_video": "media/hero.mp4",
   "resume": "Denver-Lo-Resume.pdf",
   "stats": [
@@ -251,9 +251,9 @@
   ],
   "about_video": "media/about.mp4",
   "about": [
-    "I am a finance professional and U.S. Marine Corps veteran. My work centers on accurate records, sound controls and analysis that leadership can act on.",
-    "In the Marine Corps I managed my battalion's communications security account and was personally accountable for more than $30 million in equipment. Today I manage financial operations for my family's residential real estate portfolio in Hudson County, New Jersey.",
-    "I hold a B.S. in Finance from New Jersey City University, the FINRA Securities Industry Essentials certification and a New Jersey real estate license. I am pursuing equity research first, with a coverage interest in Aerospace & Defense and SATCOM, where I operated the equipment, and in real estate and REITs, where I run the books. Quantitative finance and AI engineering are where the software I build leads."
+    "I am a finance professional and U.S. Marine Corps veteran. I have been trusted with $30M+ of Marine Corps equipment and with the books of a 13-property, 26-unit real estate portfolio, and I now build my own Python research and backtesting tools. I pair the discipline of someone who is accountable for every dollar and every asset with the analytical drive to find what a business is really worth.",
+    "In the Marine Corps I managed my battalion's communications security account and was personally accountable for more than $30 million in equipment. Today I manage financial operations for KSR Realty, a residential real estate business in Hudson County, New Jersey.",
+    "I hold a B.S. in Finance from New Jersey City University, the FINRA Securities Industry Essentials certification and a New Jersey real estate license. I am pursuing equity research, financial analysis and quantitative roles, with no single sector focus. The software I build connects all three."
   ],
   "expertise": [
     "Financial analysis, account reconciliation and real estate finance",
@@ -265,13 +265,13 @@
     {
       "years": "Feb 2025 — Present",
       "role": "Property Management and Financial Operations",
-      "org": "KSR Realty LLC (family-owned) · Bayonne, NJ",
+      "org": "KSR Realty LLC · Bayonne, NJ",
       "highlights": [
         "Manage financial operations for 13 active properties with 26 units in Hudson County, NJ",
         "Took 5 purchase loans through closing with lenders",
         "Reconcile bank deposits to the rent roll across the portfolio"
       ],
-      "description": "I run the financial operations and day-to-day management of my family's privately held residential portfolio in Hudson County, New Jersey: 13 active properties with 26 rental units, with monthly rents of $2,600–$3,600 per unit. The role covers the full cycle, from recording a rent payment to closing the books, financing a purchase and supporting a court filing. I also handle work on properties owned by outside clients.",
+      "description": "I run the financial operations and day-to-day management of a privately held residential portfolio in Hudson County, New Jersey: 13 active properties with 26 rental units, with monthly rents of $2,600–$3,600 per unit. The role covers the full cycle, from recording a rent payment to closing the books, financing a purchase and supporting a court filing. I also handle work on properties owned by outside clients.",
       "sections": [
         {
           "title": "Financial operations and accounting",
@@ -351,6 +351,14 @@
           "items": [
             "Earned the New Jersey Real Estate Salesperson License by completing coursework in contracts, agency, real estate finance, valuation and New Jersey real estate law.",
             "Bring Hudson County residential market knowledge from day-to-day management of a 13-property, 26-unit portfolio."
+          ]
+        },
+        {
+          "title": "How it fits my finance path",
+          "items": [
+            "Cap rate, net operating income, debt service coverage, loan-to-value and cash-on-cash return are the working tools of both the licence and equity research, and I use them on the properties I manage.",
+            "Comparative market analysis is the same method as comparable company analysis: choose a peer set, adjust for differences, and triangulate value.",
+            "The licence is a regulated, fiduciary role, which complements the compliance and internal-controls discipline from my Marine Corps and property accounting work."
           ]
         }
       ],
@@ -538,7 +546,7 @@
       "role": "Finance and Operations Lead",
       "org": "Emerson Amusement LLC · Jacksonville, FL",
       "highlights": [
-        "Reconciled $100K+ in daily processing cash flow across three locations",
+        "Reconciled $100K+ in gross cash flow across three locations",
         "Ran payroll for 15+ employees",
         "Prepared cash-flow reports by location for the owners"
       ],
@@ -547,7 +555,7 @@
         {
           "title": "Cash management and controls",
           "items": [
-            "Reconciled $100K+ in daily processing cash flow by counting the safe, issuing starting banks and balancing every drawer to recorded transactions at each location.",
+            "Reconciled $100K+ in gross cash flow by counting the safe, issuing starting banks and balancing every drawer to recorded transactions at each location.",
             "Investigated and documented every overage and shortage.",
             "Prepared daily bank deposits reconciled to the ledger."
           ]
@@ -577,7 +585,7 @@
       "numbers": [
         {
           "value": "$100K+",
-          "label": "daily processing cash flow reconciled"
+          "label": "gross cash flow reconciled"
         },
         {
           "value": "15+",
@@ -686,8 +694,7 @@
     ],
     "facts": [
       "Denver Lo is based in Bayonne, NJ. He prefers Jersey City or Lower Manhattan and is willing to relocate for the right role; hybrid or on-site is fine.",
-      "He is pursuing three paths: equity research, AI engineering and quantitative finance.",
-      "His equity research interests are Aerospace & Defense and SATCOM, from operating military satellite radio networks, and Real Estate and REITs, from his licence and property finance work. His AI engineering and quant case rests on Hero One, Deal Delta and Kingdom: backtesting, data pipelines and local language model integration.",
+      "He is pursuing equity research, financial analysis and quantitative roles, and has no single sector focus. His case rests on Hero One, Deal Delta and Kingdom: backtesting, data pipelines and local language model integration.",
       "The $30M+ figure is the listed price of everything on his accountable record: about 1,000 radio sets, plus tactical vehicles, SATCOM antennas, amplifiers, power sources and network hardware.",
       "KMI stands for Key Management Infrastructure, the NSA-run system for ordering, distributing and accounting for cryptographic keys. It replaced EKMS.",
       "He held a Secret clearance during his Marine Corps service. It is not active: he separated in July 2023.",
@@ -713,38 +720,37 @@
       "Three words friends would use for Denver: reliable, adaptive and intelligent, in a practical, figure-it-out way more than a bookish one. He decides with logic and data and learns best by building, which is how he taught himself Python.",
       "Three things the Marine Corps taught him that he still uses every day: stay adaptive, trust but verify, and be on time. Trust but verify is how he ran an audited COMSEC account, and it is why Hero AI has a fact-checker.",
       "He is good with his hands at repair more than building from scratch: he has repaired properties and military radio equipment.",
-      "A fun fact people don't expect: despite being a Marine, he is not a heavy drinker or a smoker.",
       "Denver's top three strengths are staying calm under pressure, resourcefulness and adaptability. Calm: in a field exercise in 100-degree heat while fire missions continued, several Marines suffered heat stroke and his communications team helped coordinate the medical evacuation without dropping operations. Resourceful: when radios failed from bad crypto keys and heat, he built an improvised cooling chamber from spare gear and set up HF links on copper wire to keep communications up. Adaptive: when techs were sent to the field, he filled in as a technician, network operator and section leader.",
       "Denver's honest weakness: he was trained to act rather than wait for an explanation, so he sometimes starts a task on his own read of it. That occasionally means wasted effort, and he now clarifies the goal and asks first. He is also working on his coding depth and on corporate-level finance experience, because school and the fleet are never quite the same.",
       "A mistake Denver learned from: as KMI manager he took leave during a cryptographic changeover and forgot to remind his backups, so several keys expired. He built a calendar and checklist system for every project afterward, and his section rarely had late issues after that.",
       "Hardest problems Denver has solved: he wrote the battalion's MUOS standard operating procedures while keeping normal operations and field exercises running, and he coordinated a same-night shift of the whole communications network from VHF to MUOS by delegating to a group of Marines. He also found double-issued equipment that had left record discrepancies, fixed it, and built an Excel tracker for radios, keys and equipment.",
       "Leadership: as KMI/EKMS manager Denver trained each monthly group of new Marines into operators, led 12+ operators day to day, and led strike groups and simulated strikes in field exercises. With an underperformer he talks privately, clarifies expectations, asks about obstacles, and helps without solving it for them. He takes criticism as data, reflects and improves, and does not get defensive.",
       "Working style: Denver does best with high standards, direct feedback, autonomy and a clear goal (commander's intent). He likes working independently but values a team for performance and capability. He taught himself most of what he builds by trial and error.",
-      "Why finance and these paths: finance is understanding value and business. Equity research is analysis of data, from management to financial records, to determine value. Quant is data, code and probabilities. AI engineering builds tools that scale research. Each means defining a problem, finding an edge, testing it and producing real results.",
+      "Why finance and these paths: finance is understanding value and business. Equity research is analysis of data, from management to financial records, to determine value. Quant is data, code and probabilities. The software he builds scales that research. Each means defining a problem, finding an edge, testing it and producing real results.",
       "Why the Marines, and why leave real estate: he joined for the challenge and independence, wanting to earn his own way, and it gave him discipline and accountability. He wants to move from operating a small portfolio to more analytical and quantitative work at a larger scale: building and investing, not just operating.",
-      "Where Denver wants to be in five years: in a more senior role in equity research, quant or AI engineering, in charge of his own decisions and a reliable team, and holding the CFA and securities licences such as the Series 7 and 63.",
+      "Where Denver wants to be in five years: in a more senior role in equity research, financial analysis or quant, in charge of his own decisions and a reliable team, and holding the CFA and securities licences such as the Series 7 and 63.",
       "What sets Denver apart: Marine Corps discipline and operations experience, a finance degree earned in about two years while working, real estate analytical fundamentals, and AI tools he built himself. He has no formal equity research or engineering job yet, and says he has proven he learns fast by holding every communications role in his section.",
       "On coding with AI: Denver understands the architecture and data flow of his projects well enough to debug them and uses AI to speed up and test changes. He does not call himself a senior engineer, but can write a basic working program from scratch.",
-      "Denver is targeting entry-level roles: analyst and associate programs, graduate programs, and junior analyst or engineer positions, and he is open to contract work as a way in.",
+      "Denver is targeting entry-level roles: analyst and associate programs, graduate programs, and junior analyst positions, and he is open to contract work as a way in.",
       "His path: Denver grew up in Florida, joined the Marine Corps, and moved to New Jersey after his service to join his family. He can start soon and is open to relocation, travel, contract roles and analyst programs. For compensation, ask him by email.",
-      "Investment philosophy: quality and value with quant discipline, meaning companies with high potential in their industry and a clear advantage or unique capability. His own research tool, Hero One, sometimes disagrees with his view, and he treats that as data. For example, it favored AMD over NVDA and AMD outperformed. These are views, not investment advice.",
+      "Investment philosophy: quality and value with quant discipline, meaning companies with high potential in their industry and a clear advantage or unique capability. His own research tool, Hero One, sometimes disagrees with his view, and he treats that as data. These are views, not investment advice.",
       "Denver is most proud of his Marine Corps experience, the team he built and developed with, and developing and implementing the MUOS operation and its procedures.",
-      "KSR Realty LLC is Denver's family's business, a family-owned residential portfolio. He runs its financial operations day to day and says so openly.",
+      "KSR Realty LLC is a residential real estate business in Hudson County. Denver runs its financial operations day to day.",
       "His GitHub is https://github.com/DrLo-Hero."
     ]
   },
   "faq": [
     {
       "q": "Which role are you targeting?",
-      "a": "Equity research first: entry-level analyst and associate roles or programs, with a coverage interest in Aerospace & Defense and SATCOM, and in real estate and REITs. I built Hero One, Deal Delta and Kingdom to do that research work, which also makes me a fit for junior quantitative and AI engineering roles. I am open to contract work as a way in."
+      "a": "Equity research, financial analysis and quantitative roles, at the entry level and open on sector. I built Hero One, Deal Delta and Kingdom to do research, backtesting and data work, which fits junior analyst and quantitative roles. I am open to contract work as a way in."
     },
     {
       "q": "Why finance, and why leave real estate operations?",
       "a": "Finance is the work of understanding what a business is worth. Running a small portfolio taught me the fundamentals: rent rolls, reconciliations, financing and cash flow. I want to apply that analysis at a larger scale, to building and investing rather than only operating."
     },
     {
-      "q": "Is KSR Realty a family business?",
-      "a": "Yes. KSR Realty is my family's residential portfolio in Hudson County. I run its financial operations: ledgers, monthly bank-to-rent-roll reconciliations, owner reporting, purchase-loan financing and landlord-tenant compliance."
+      "q": "What do you do at KSR Realty?",
+      "a": "KSR Realty is a residential real estate business in Hudson County. I run its financial operations: ledgers, monthly bank-to-rent-roll reconciliations, owner reporting, purchase-loan financing and landlord-tenant compliance."
     },
     {
       "q": "How much of your code is written by AI?",
@@ -764,7 +770,7 @@
     },
     {
       "q": "What credentials are next?",
-      "a": "I hold the FINRA SIE and a New Jersey real estate license. Next are the CFA Program and the FINRA Series 7 and 63, which need a sponsoring firm."
+      "a": "I hold the FINRA SIE and a New Jersey real estate license. Next are the CFA Program, which I can start on my own, and the FINRA Series 7 and 63, which need a sponsoring firm."
     },
     {
       "q": "Tell me about a mistake you learned from.",
