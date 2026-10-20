@@ -38,6 +38,127 @@
   ],
   "projects": [
     {
+      "title": "Amphenol (APH) Initiation",
+      "year": "2026",
+      "tags": [
+        "Equity research",
+        "Valuation",
+        "Excel"
+      ],
+      "summary": "An initiation of coverage on Amphenol: HOLD, $72 price target (-9% vs the $79.35 close on Oct 16, 2026), built from SEC filings with every figure a live formula.",
+      "metric": "10-year, three-scenario DCF · regression-beta WACC · reverse DCF · 6-peer comps",
+      "features": [
+        {
+          "name": "Page 1 · Thesis and rating",
+          "shot": "media/aph-p1.png",
+          "text": "The call on one page: growth is real and broad, management beats its own guidance, margins are at a record, and today's price already assumes roughly the bull case."
+        },
+        {
+          "name": "Page 2 · DCF and WACC",
+          "shot": "media/aph-p2.png",
+          "text": "Base-case DCF to 2036, a 9.84% WACC built from a 5-year regression beta (Blume-adjusted 1.17), a WACC by terminal-growth grid and five years of point-in-time P/E."
+        },
+        {
+          "name": "Page 3 · Scenarios and comps",
+          "shot": "media/aph-p3.png",
+          "text": "Bull, base and bear cases ($85 / $61 / $38 per share) with their probabilities, segment detail, and trading comps against TE Connectivity, Corning, Vertiv, Sensata, Belden and Littelfuse."
+        },
+        {
+          "name": "Page 4 · Perspective and sources",
+          "shot": "media/aph-p4.png",
+          "text": "An analyst view drawn from four years running Marine Corps radio networks, plus the full methodology and source list."
+        }
+      ],
+      "body": [
+        "Amphenol is executing as well as any industrial company, and the price reflects it. The report asks what the stock needs to be worth more, and answers with a reverse DCF: about 18% revenue growth in 2027, roughly the bull case.",
+        "The price target weights a probability-weighted DCF ($61) and a P/E method ($82) equally. Inputs come from Amphenol's 10-K, 10-Qs and 8-Ks, peer XBRL filings and FRED rates, each one labeled with its source in the model.",
+        "Prices are as of the October 16, 2026 close; the report predates Q3 2026 earnings. Independent educational research, not investment advice."
+      ],
+      "purpose": "Written to show the full equity research workflow end to end: model, valuation, a falsifiable call and a written report.",
+      "numbers": [
+        {
+          "value": "$72",
+          "label": "12-month price target (HOLD)"
+        },
+        {
+          "value": "9.84%",
+          "label": "WACC from a regression beta"
+        },
+        {
+          "value": "3",
+          "label": "DCF scenarios, probability-weighted"
+        },
+        {
+          "value": "6",
+          "label": "peers in trading comps"
+        }
+      ],
+      "shows": [
+        "DCF",
+        "WACC",
+        "Reverse DCF",
+        "Comparable companies",
+        "Report writing"
+      ],
+      "link": "media/APH-Initiation-Report.pdf",
+      "link_label": "Read the full report (PDF) →"
+    },
+    {
+      "title": "ETF Momentum Research Note",
+      "year": "2026",
+      "tags": [
+        "Quant research",
+        "Python",
+        "Statistics"
+      ],
+      "summary": "Does ETF momentum survive an honest out-of-sample test? No: chosen on 2007-2021 data, it earned a 0.17 Sharpe after 2021 against SPY's 0.55.",
+      "metric": "19 years of data · 15-config grid · Newey-West alpha · deflated Sharpe · bootstrap",
+      "features": [
+        {
+          "name": "Page 1 · Answer and test design",
+          "shot": "media/quant-p1.png",
+          "text": "A defensive dual-momentum rule over 17 ETFs, with parameters picked on training data only and no look-ahead. In-sample rank predicted out-of-sample rank negatively (rho = -0.44)."
+        },
+        {
+          "name": "Page 2 · Statistics and verdict",
+          "shot": "media/quant-p2.png",
+          "text": "Probabilistic and deflated Sharpe, a bootstrap test and a train/test grid, plus the same standard applied to my own trading system's forward record."
+        }
+      ],
+      "body": [
+        "The note picks the best of 15 momentum configurations on 2007-2021 data and then tests it on 2022 to October 2026, data it never saw. The edge over SPY is statistically indistinguishable from zero.",
+        "It also explains why an earlier tournament in Project Hero One had picked a stronger-looking version: the candidates were ranked on held-out data, which is selection bias."
+      ],
+      "purpose": "Written to show research discipline: a clear question, a test that could fail, and a reported negative result.",
+      "numbers": [
+        {
+          "value": "0.17",
+          "label": "out-of-sample Sharpe (SPY 0.55)"
+        },
+        {
+          "value": "-0.44",
+          "label": "in-sample vs out-of-sample rank correlation"
+        },
+        {
+          "value": "94.0%",
+          "label": "deflated-Sharpe probability in training"
+        },
+        {
+          "value": "17",
+          "label": "ETFs, monthly, 2007-2026"
+        }
+      ],
+      "shows": [
+        "Backtesting",
+        "Train/test split",
+        "Regression",
+        "Deflated Sharpe",
+        "Bootstrap"
+      ],
+      "link": "media/ETF-Momentum-Research-Note.pdf",
+      "link_label": "Read the full note (PDF) →"
+    },
+    {
       "title": "Project Hero One",
       "year": "2026 — Present",
       "tags": [
@@ -51,27 +172,47 @@
         {
           "name": "Company history and backtest",
           "shot": "media/hero-one-backtest.png",
-          "text": "Every company opens on its full record: price since the first trade, each reported quarter from SEC filings, dated events, drawdowns and recessions on one timeline, with return, volatility and valuation figures alongside."
+          "text": "Every company opens on its full record: price since the first trade, each reported quarter from SEC filings, dated events, drawdowns and recessions on one timeline, with return, volatility and valuation figures alongside.",
+          "badge": {
+            "value": "44.8 yrs",
+            "label": "of price history on one timeline (LHX shown)"
+          }
         },
         {
           "name": "Connection map",
           "shot": "media/hero-one-connections.png",
-          "text": "Relationships researched from public filings: institutional holders from 13F reports, officers and directors, suppliers and customers, subsidiaries, company sites and recent SEC filings."
+          "text": "Relationships researched from public filings: institutional holders from 13F reports, officers and directors, suppliers and customers, subsidiaries, company sites and recent SEC filings.",
+          "badge": {
+            "value": "13F",
+            "label": "filings behind institutional holder links"
+          }
         },
         {
           "name": "Asset map",
           "shot": "media/hero-one-map.png",
-          "text": "A company's physical footprint on a map, built from open sources, with layers for connected companies, freight routes, resources and hazards."
+          "text": "A company's physical footprint on a map, built from open sources, with layers for connected companies, freight routes, resources and hazards.",
+          "badge": {
+            "value": "4",
+            "label": "map layers: companies, freight, resources, hazards"
+          }
         },
         {
           "name": "Live news and research",
           "shot": "media/hero-one-news.png",
-          "text": "Headlines, articles and research gathered from 50+ sources for a chosen universe, filterable by sentiment and tag."
+          "text": "Headlines, articles and research gathered from 50+ sources for a chosen universe, filterable by sentiment and tag.",
+          "badge": {
+            "value": "50+",
+            "label": "news and research sources"
+          }
         },
         {
           "name": "Quote and charting",
           "shot": "media/hero-one-quote.png",
-          "text": "Live quotes with bid, ask and spread, and a chart workspace with moving averages, VWAP, RSI, MACD and volume profile."
+          "text": "Live quotes with bid, ask and spread, and a chart workspace with moving averages, VWAP, RSI, MACD and volume profile.",
+          "badge": {
+            "value": "5",
+            "label": "chart studies: MAs, VWAP, RSI, MACD, volume profile"
+          }
         }
       ],
       "body": [
@@ -121,22 +262,38 @@
         {
           "name": "Opportunity scanner",
           "shot": "media/deal-delta-scanner.png",
-          "text": "Live and cached federal notices in one feed, each showing set-aside status, an ease-of-delivery score from 0 to 100, place of work and days remaining to respond."
+          "text": "Live and cached federal notices in one feed, each showing set-aside status, an ease-of-delivery score from 0 to 100, place of work and days remaining to respond.",
+          "badge": {
+            "value": "0–100",
+            "label": "ease-of-delivery score per notice"
+          }
         },
         {
           "name": "Search workspace",
           "shot": "media/deal-delta-search.png",
-          "text": "Filters by agency, NAICS sector, set-aside, notice type and posting window, with a control over how many live SAM.gov requests are spent."
+          "text": "Filters by agency, NAICS sector, set-aside, notice type and posting window, with a control over how many live SAM.gov requests are spent.",
+          "badge": {
+            "value": "5",
+            "label": "filters: agency, NAICS, set-aside, type, window"
+          }
         },
         {
           "name": "Contract playbook",
           "shot": "media/deal-delta-playbook.png",
-          "text": "A working reference for turning a match into a compliant bid: acquisition thresholds, how to mirror winning searches, and treating the solicitation as the operating manual."
+          "text": "A working reference for turning a match into a compliant bid: acquisition thresholds, how to mirror winning searches, and treating the solicitation as the operating manual.",
+          "badge": {
+            "value": "3",
+            "label": "playbook rules: thresholds, mirror winners, solicitation as manual"
+          }
         },
         {
           "name": "Grant opportunities",
           "shot": "media/deal-delta-grants.png",
-          "text": "Grants.gov announcements searched separately from contracts, because grants follow a different money model: indirect cost rates and cost share, with no profit."
+          "text": "Grants.gov announcements searched separately from contracts, because grants follow a different money model: indirect cost rates and cost share, with no profit.",
+          "badge": {
+            "value": "0%",
+            "label": "profit: grants pay indirect costs and cost share"
+          }
         }
       ],
       "body": [
@@ -187,38 +344,63 @@
         {
           "name": "Portfolio dashboard",
           "shot": "media/kingdom-dashboard.png",
-          "text": "Portfolio value over time, equity, occupancy, annual cash flow, delinquency and the month's rent collection on one screen."
+          "text": "Portfolio value over time, equity, occupancy, annual cash flow, delinquency and the month's rent collection on one screen.",
+          "badge": {
+            "value": "6",
+            "label": "measures on one screen, from value to rent collected"
+          }
         },
         {
           "name": "Rent roll and receivables",
           "shot": "media/kingdom-rent-roll.png",
-          "text": "Scheduled versus collected rent, the collection rate, each lease's balance and status, and receivables aged at 30, 60 and 90 days."
+          "text": "Scheduled versus collected rent, the collection rate, each lease's balance and status, and receivables aged at 30, 60 and 90 days.",
+          "badge": {
+            "value": "30/60/90",
+            "label": "day receivables aging"
+          }
         },
         {
           "name": "Accounting",
           "shot": "media/kingdom-accounting.png",
-          "text": "A double-entry ledger with bank reconciliation, a trailing 12-month operating statement, a balance sheet, owner statements and a tax export."
+          "text": "A double-entry ledger with bank reconciliation, a trailing 12-month operating statement, a balance sheet, owner statements and a tax export.",
+          "badge": {
+            "value": "12-mo",
+            "label": "operating statement, from a double-entry ledger"
+          }
         },
         {
           "name": "Portfolio analytics",
           "shot": "media/kingdom-analytics.png",
-          "text": "Return on equity, cap rate and cash flow by property, concentration by city and property type, and debt and refinancing risk."
+          "text": "Return on equity, cap rate and cash flow by property, concentration by city and property type, and debt and refinancing risk.",
+          "badge": {
+            "value": "3",
+            "label": "return measures per property: ROE, cap rate, cash flow"
+          }
         },
         {
           "name": "Compliance and legal",
           "shot": "media/kingdom-compliance.png",
-          "text": "Required registrations, insurance policies and certificates tracked per property, with open issues and due dates."
+          "text": "Required registrations, insurance policies and certificates tracked per property, with open issues and due dates.",
+          "badge": {
+            "value": "3",
+            "label": "records per property: registrations, insurance, certificates"
+          }
         },
         {
           "name": "Maintenance",
           "shot": "media/kingdom-maintenance.png",
-          "text": "Work orders on a board from open to done, by priority, with preventive maintenance schedules and vendor records."
+          "text": "Work orders on a board from open to done, by priority, with preventive maintenance schedules and vendor records.",
+          "badge": {
+            "value": "Open → Done",
+            "label": "work-order board with preventive schedules"
+          }
         }
       ],
       "body": [
         "Kingdom brings the financial and operating records of a residential portfolio into one system: properties, units, leases, tenants, loans, insurance, taxes and documents.",
         "A local language model reads uploaded leases, bills and statements, masks sensitive numbers and queues each document for review before it is filed.",
         "It is written in Python using only the standard library, with a SQLite database and an automated test suite.",
+        "Its data also feeds a separate underwriting model: NOI, cap rate, DSCR, LTV, loan amortization tied to the servicer within $0.01, and a max-bid test for acquisitions. That model stays private because it uses real property figures.",
         "All screenshots here use fictional sample data, not real properties or tenants."
       ],
       "purpose": "Built to replace separate spreadsheets with one system of record, where every rent payment posts to a ledger and every property can be measured on return, cash flow and risk.",
