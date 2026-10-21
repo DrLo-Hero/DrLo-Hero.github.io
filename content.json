@@ -104,61 +104,6 @@
       "link_label": "Read the full report (PDF) →"
     },
     {
-      "title": "ETF Momentum Research Note",
-      "year": "2026",
-      "tags": [
-        "Quant research",
-        "Python",
-        "Statistics"
-      ],
-      "summary": "Does ETF momentum survive an honest out-of-sample test? No: chosen on 2007-2021 data, it earned a 0.17 Sharpe after 2021 against SPY's 0.55.",
-      "metric": "19 years of data · 15-config grid · Newey-West alpha · deflated Sharpe · bootstrap",
-      "features": [
-        {
-          "name": "Page 1 · Answer and test design",
-          "shot": "media/quant-p1.png",
-          "text": "A defensive dual-momentum rule over 17 ETFs, with parameters picked on training data only and no look-ahead. In-sample rank predicted out-of-sample rank negatively (rho = -0.44)."
-        },
-        {
-          "name": "Page 2 · Statistics and verdict",
-          "shot": "media/quant-p2.png",
-          "text": "Probabilistic and deflated Sharpe, a bootstrap test and a train/test grid, plus the same standard applied to my own trading system's forward record."
-        }
-      ],
-      "body": [
-        "The note picks the best of 15 momentum configurations on 2007-2021 data and then tests it on 2022 to October 2026, data it never saw. The edge over SPY is statistically indistinguishable from zero.",
-        "It also explains why an earlier tournament in Project Hero One had picked a stronger-looking version: the candidates were ranked on held-out data, which is selection bias."
-      ],
-      "purpose": "Written to show research discipline: a clear question, a test that could fail, and a reported negative result.",
-      "numbers": [
-        {
-          "value": "0.17",
-          "label": "out-of-sample Sharpe (SPY 0.55)"
-        },
-        {
-          "value": "-0.44",
-          "label": "in-sample vs out-of-sample rank correlation"
-        },
-        {
-          "value": "94.0%",
-          "label": "deflated-Sharpe probability in training"
-        },
-        {
-          "value": "17",
-          "label": "ETFs, monthly, 2007-2026"
-        }
-      ],
-      "shows": [
-        "Backtesting",
-        "Train/test split",
-        "Regression",
-        "Deflated Sharpe",
-        "Bootstrap"
-      ],
-      "link": "media/ETF-Momentum-Research-Note.pdf",
-      "link_label": "Read the full note (PDF) →"
-    },
-    {
       "title": "Project Hero One",
       "year": "2026 — Present",
       "tags": [
