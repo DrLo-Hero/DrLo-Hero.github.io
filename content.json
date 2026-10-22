@@ -1,7 +1,7 @@
 {
   "name": "Denver Lo",
-  "tagline": "Equity Research Candidate, U.S. Marine and Builder of His Own Research Tools",
-  "intro": "Finance graduate and U.S. Marine Corps veteran pursuing equity research, financial analysis and quantitative roles. I build my own research, backtesting and analytics tools in Python, which connects all three paths. I have run real estate financial operations, asset accountability and internal controls.",
+  "tagline": "Equity Research, Financial Analysis and Quant Candidate. U.S. Marine. A Fast Learner Who Builds His Own Research Tools.",
+  "intro": "Finance graduate and U.S. Marine Corps veteran pursuing equity research, financial analysis and quantitative roles. I soak up information: filings, financial models, market news and the statistics behind a backtest. Then I build tools in Python to test what I learned. I will learn whatever the job needs and take on whatever needs doing, from reconciling a ledger to testing a strategy.",
   "hero_video": "media/hero.mp4",
   "resume": "Denver-Lo-Resume.pdf",
   "stats": [
@@ -96,8 +96,13 @@
       ],
       "body": [
         "Hero One is a local, single-operator research workstation. One search takes a company, product, person or place, and every company in view is one click from each page about it.",
-        "It is built on free public and open sources and local inference, with no paid data or metered API. Each observation is recorded with its source and the date it became known.",
-        "Portfolio tracking is paper-only: portfolio managers and analysts run model sleeves, test theses against point-in-time history and report to the operator. No live trading is authorized.",
+        "It is built on free public and open sources and local inference, with no paid data or metered API. Each observation is recorded with its source and the date it became known, so a test of an idea only uses what was public on that date.",
+        "Valuation: two- and three-stage DCF, reverse DCF, dividend discount, residual income and peer multiples (P/E, EV/EBITDA, EV/Sales), aggregated as a median with a margin of safety; where the models disagree, that is treated as information. The discount rate comes from CAPM using the live 13-week T-bill, the stock's beta and an equity risk premium, and every fair value lists the inputs it used and where each came from.",
+        "Quality and distress screens: Piotroski F-score, Altman Z-score, the Graham number and owner earnings sit beside each valuation.",
+        "Risk and statistics: volatility forecasts (EWMA, GJR-GARCH and HAR-RV), hidden Markov regime models and a Monte Carlo scenario engine. Each model opens to its formula, its inputs and its honest limits.",
+        "Validation: ideas are tested walk-forward with purged cross-validation, the probabilistic and deflated Sharpe ratios, and the probability of backtest overfitting. A result that only looks good because many variations were tried does not pass.",
+        "Research desk: paper portfolio managers each run a $10,000 paper portfolio split across their analysts' thesis sleeves. Each week the analysts propose hypotheses and test them over ten years of point-in-time evidence; a finding is written into the research library only after it passes every check, including a false-discovery haircut, in more than one weekly test.",
+        "I audited my own results. The forward record had 349 scored decisions over 35 sessions, a 47.9% hit rate and a session-clustered t-stat of −0.79: no edge. The audit also found three estimator defects that had been producing false positives, including a deflated Sharpe threshold set at the median of pure noise. I wrote the verdict down, retired the trading stack and refocused Hero One on research. No live trading is authorized.",
         "The project began in April 2026 and is in active development."
       ],
       "purpose": "Built to do the groundwork of company research in one place: read the filings, see who owns and supplies the business, and test an idea against its full history before forming a view.",
@@ -122,8 +127,10 @@
       "shows": [
         "Equity research",
         "Fundamental analysis",
+        "DCF and CAPM",
         "SEC filings",
-        "Backtesting",
+        "Volatility modeling",
+        "Backtest validation",
         "Data pipelines"
       ]
     },
@@ -176,11 +183,13 @@
         }
       ],
       "body": [
-        "Deal Delta scans five government procurement sources: SAM.gov, NJSTART, NYC City Record, LA County RAMP and Grants.gov. It merges them into one searchable local cache.",
-        "It converts each solicitation's attachments (PDF, Word, Excel and zip packages) into a numbered requirements matrix, then tracks sourcing coverage for every requirement.",
-        "AI sourcing agents price the required goods and services. The platform computes cost to fulfill against award value, with overhead and bid markup as adjustable assumptions.",
-        "Pricing is benchmarked against historical USAspending.gov awards by NAICS, PSC and agency, at the 25th percentile, median and 75th percentile.",
-        "Grants are modeled under federal cost principles in 2 CFR 200: the 15% de minimis indirect rate and no profit."
+        "Deal Delta scans five government procurement sources: SAM.gov, NJSTART, NYC City Record, LA County RAMP and Grants.gov. It merges them into one searchable local cache, and a feed that is down is reported rather than failing the search.",
+        "It converts each solicitation's attachments (PDF, Word, Excel and zip packages) into a numbered requirements matrix with the exact quoted words, then tracks sourcing coverage for every requirement: sourced, sourced but unpriced, or never sourced.",
+        "AI sourcing agents price the required goods and services. Part numbers are compared exactly, so a different part is flagged rather than assumed equivalent. The platform computes cost to fulfill against award value, with overhead and bid markup as adjustable assumptions.",
+        "Pricing is benchmarked against historical USAspending.gov awards at the 25th percentile, median and 75th percentile. The peer set narrows to the closest comparison it can fill, from NAICS, PSC and agency down to governmentwide, and past awards are ranked by how closely their description matches the notice. It is the same discipline as choosing a comps peer set.",
+        "A market intelligence console searches 29 datasets with one keyword: awards, awardees, market share and trend analysis, an incumbent finder, and a capture pipeline that weights each pursuit by its stage's probability of winning.",
+        "Grants are modeled under federal cost principles in 2 CFR 200: the 15% de minimis indirect rate and no profit. Labor rates from GSA CALC+ are shown as ceilings, never as cost.",
+        "I had to learn federal acquisition to build it, from the source documents: acquisition thresholds, NAICS and PSC codes, set-aside programs and the 2 CFR 200 cost principles."
       ],
       "purpose": "Built to answer one question before any bid is written: after sourcing every required good and service, is there a margin, and how does the price compare with past awards?",
       "numbers": [
@@ -206,7 +215,8 @@
         "Margin analysis",
         "Comparables",
         "Cost modeling",
-        "Government contracting"
+        "Government contracting",
+        "Market analysis"
       ]
     },
     {
@@ -277,9 +287,12 @@
       ],
       "body": [
         "Kingdom brings the financial and operating records of a residential portfolio into one system: properties, units, leases, tenants, loans, insurance, taxes and documents.",
-        "A local language model reads uploaded leases, bills and statements, masks sensitive numbers and queues each document for review before it is filed.",
+        "Every rent payment and bill posts to a double-entry ledger. The books reconcile to the bank, and the system produces a trailing 12-month operating statement, a balance sheet, owner statements and a tax export.",
+        "Analytics measure each property on return on equity, cap rate and cash flow, and the portfolio on concentration by city and property type and on debt and refinancing risk.",
+        "A local language model, running on my own PC, reads uploaded leases, bills and statements, masks sensitive numbers and queues each document for review before it is filed.",
         "It is written in Python using only the standard library, with a SQLite database and an automated test suite.",
         "Its data also feeds a separate underwriting model: NOI, cap rate, DSCR, LTV, loan amortization tied to the servicer within $0.01, and a max-bid test for acquisitions. That model stays private because it uses real property figures.",
+        "Kingdom is where the accounting I studied became daily practice: I built the system around the books I already keep at work.",
         "All screenshots here use fictional sample data, not real properties or tenants."
       ],
       "purpose": "Built to replace separate spreadsheets with one system of record, where every rent payment posts to a ledger and every property can be measured on return, cash flow and risk.",
@@ -313,6 +326,7 @@
   "about_video": "media/about.mp4",
   "about": [
     "I am a finance professional and U.S. Marine Corps veteran. I have been trusted with $30M+ of Marine Corps equipment and with the books of a 13-property, 26-unit real estate portfolio, and I now build my own Python research and backtesting tools. I pair the discipline of someone who is accountable for every dollar and every asset with the analytical drive to find what a business is really worth.",
+    "I learn by taking in everything around a problem and then building with it. I taught myself Python by building Hero One, Deal Delta and Kingdom, and learned SEC filings, 13F reports, federal acquisition rules and backtest statistics the same way: read the source, build something with it, test it, fix it. In the Marine Corps I was selected as a Lance Corporal for a billet normally held by a Sergeant, and I filled every communications role in my section when it was short of people. I take on whatever the team needs, including the unglamorous work, and I get good at it fast.",
     "In the Marine Corps I managed my battalion's communications security account and was personally accountable for more than $30 million in equipment. Today I manage financial operations for KSR Realty, a residential real estate business in Hudson County, New Jersey.",
     "I hold a B.S. in Finance from New Jersey City University, the FINRA Securities Industry Essentials certification and a New Jersey real estate license. I am pursuing equity research, financial analysis and quantitative roles, with no single sector focus. The software I build connects all three."
   ],
@@ -320,7 +334,8 @@
     "Financial analysis, account reconciliation and real estate finance",
     "Risk assessment, internal controls and regulatory compliance",
     "Equity research, backtesting and quantitative analysis",
-    "Python, SQL, Excel, FastAPI and large language model integration"
+    "Python, SQL, Excel, FastAPI and large language model integration",
+    "Learning fast and taking on whatever the team needs"
   ],
   "experience": [
     {
@@ -803,39 +818,19 @@
   "faq": [
     {
       "q": "Which role are you targeting?",
-      "a": "Equity research, financial analysis and quantitative roles, at the entry level and open on sector. I built Hero One, Deal Delta and Kingdom to do research, backtesting and data work, which fits junior analyst and quantitative roles. I am open to contract work as a way in."
+      "a": "Equity research, financial analysis and quantitative roles, at the entry level and open on sector. I built Hero One, Deal Delta and Kingdom to do research, valuation, backtesting and data work, which fits junior analyst and quantitative roles. I am open to analyst programs, contract work as a way in, and whatever the team needs from me."
     },
     {
       "q": "Why finance, and why leave real estate operations?",
       "a": "Finance is the work of understanding what a business is worth. Running a small portfolio taught me the fundamentals: rent rolls, reconciliations, financing and cash flow. I want to apply that analysis at a larger scale, to building and investing rather than only operating."
     },
     {
-      "q": "What do you do at KSR Realty?",
-      "a": "KSR Realty is a residential real estate business in Hudson County. I run its financial operations: ledgers, monthly bank-to-rent-roll reconciliations, owner reporting, purchase-loan financing and landlord-tenant compliance."
+      "q": "What if the job needs something you don't know yet?",
+      "a": "I learn it, fast. I was selected as a Lance Corporal for a COMSEC billet normally held by a Sergeant, and I filled every communications role in my section when it was short of people. I taught myself Python by building three working systems, and learned SEC filings, federal acquisition rules and backtest statistics the same way: read the source, build with it, test it. Next on my list is the CFA Program, which I can start on my own."
     },
     {
       "q": "How much of your code is written by AI?",
       "a": "I build with AI coding tools, and I say so. I design each system, decide its architecture and data flow, review every change, write the tests and debug the failures. I can explain any module of my projects and write a basic working program from scratch. I do not call myself a senior engineer."
-    },
-    {
-      "q": "How do you know the AI output is correct?",
-      "a": "The way I ran a COMSEC account: trust but verify. Kingdom queues every document the model reads for my review before anything is filed. Hero One stores each data point with its source and the date it became known. Hero AI, the assistant on this site, has a fact-checker that blocks figures it cannot verify."
-    },
-    {
-      "q": "How do you keep a backtest honest?",
-      "a": "Hero One records when each data point became public, so a test of an idea only uses what was known on that date. Portfolios are paper only: the tool makes no claim of trading profits and runs no live money."
-    },
-    {
-      "q": "Is your security clearance active?",
-      "a": "No. I held a Secret clearance during my Marine Corps service and separated in July 2023."
-    },
-    {
-      "q": "What credentials are next?",
-      "a": "I hold the FINRA SIE and a New Jersey real estate license. Next are the CFA Program, which I can start on my own, and the FINRA Series 7 and 63, which need a sponsoring firm."
-    },
-    {
-      "q": "Tell me about a mistake you learned from.",
-      "a": "As KMI manager I went on leave during a cryptographic changeover and did not remind my backups, so several keys expired. I took ownership, then built a calendar and checklist system for every changeover and section project. After that, late actions in my section were rare."
     },
     {
       "q": "Where and when can you start?",
