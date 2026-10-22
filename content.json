@@ -1,7 +1,7 @@
 {
   "name": "Denver Lo",
-  "tagline": "Equity Research, Financial Analysis and Quant Candidate. U.S. Marine. A Fast Learner Who Builds His Own Research Tools.",
-  "intro": "Finance graduate and U.S. Marine Corps veteran pursuing equity research, financial analysis and quantitative roles. I soak up information: filings, financial models, market news and the statistics behind a backtest. Then I build tools in Python to test what I learned. I will learn whatever the job needs and take on whatever needs doing, from reconciling a ledger to testing a strategy.",
+  "tagline": "Finance Graduate and U.S. Marine Corps Veteran · Equity Research, Financial Analysis and Quantitative Roles",
+  "intro": "Denver Lo is a finance graduate and U.S. Marine Corps veteran pursuing equity research, financial analysis and quantitative roles. He absorbs new information quickly, from SEC filings and financial models to market data and statistical methods, and builds Python tools to put it to work. He takes on any assignment the team needs, from account reconciliation to model validation.",
   "hero_video": "media/hero.mp4",
   "resume": "Denver-Lo-Resume.pdf",
   "stats": [
@@ -325,17 +325,17 @@
   ],
   "about_video": "media/about.mp4",
   "about": [
-    "I am a finance professional and U.S. Marine Corps veteran. I have been trusted with $30M+ of Marine Corps equipment and with the books of a 13-property, 26-unit real estate portfolio, and I now build my own Python research and backtesting tools. I pair the discipline of someone who is accountable for every dollar and every asset with the analytical drive to find what a business is really worth.",
-    "I learn by taking in everything around a problem and then building with it. I taught myself Python by building Hero One, Deal Delta and Kingdom, and learned SEC filings, 13F reports, federal acquisition rules and backtest statistics the same way: read the source, build something with it, test it, fix it. In the Marine Corps I was selected as a Lance Corporal for a billet normally held by a Sergeant, and I filled every communications role in my section when it was short of people. I take on whatever the team needs, including the unglamorous work, and I get good at it fast.",
-    "In the Marine Corps I managed my battalion's communications security account and was personally accountable for more than $30 million in equipment. Today I manage financial operations for KSR Realty, a residential real estate business in Hudson County, New Jersey.",
-    "I hold a B.S. in Finance from New Jersey City University, the FINRA Securities Industry Essentials certification and a New Jersey real estate license. I am pursuing equity research, financial analysis and quantitative roles, with no single sector focus. The software I build connects all three."
+    "Denver Lo is a finance professional and U.S. Marine Corps veteran, entrusted with Marine Corps equipment valued at more than $30M and with the books of a 13-property, 26-unit real estate portfolio. He pairs strict accountability for every dollar and asset with the analytical drive to determine what a business is truly worth.",
+    "He masters new subjects by working directly from primary sources and applying them. Python, SEC filings, 13F reporting, federal acquisition regulations and backtest statistics were all self-taught while building Hero One, Deal Delta and Kingdom. In the Marine Corps, he was selected as a Lance Corporal for a billet normally held by a Sergeant and filled every communications role in his section when it was understaffed. He takes on whatever the team requires, including routine work, and reaches proficiency quickly.",
+    "As a Marine, he managed the battalion's communications security account and passed every inspection and audit. Today he manages financial operations for KSR Realty, a residential real estate business in Hudson County, New Jersey.",
+    "He holds a B.S. in Finance from New Jersey City University, the FINRA Securities Industry Essentials (SIE) certification and a New Jersey real estate salesperson license. He is pursuing equity research, financial analysis and quantitative roles across sectors, supported by the research software he builds."
   ],
   "expertise": [
     "Financial analysis, account reconciliation and real estate finance",
     "Risk assessment, internal controls and regulatory compliance",
     "Equity research, backtesting and quantitative analysis",
     "Python, SQL, Excel, FastAPI and large language model integration",
-    "Learning fast and taking on whatever the team needs"
+    "Rapid skill acquisition and flexibility across assignments"
   ],
   "experience": [
     {
