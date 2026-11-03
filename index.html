@@ -57,6 +57,16 @@ section { padding: clamp(72px, 12vw, 160px) var(--pad); }
 .btn.ghost:hover, .pill:hover { border-color:var(--ink); }
 .btn.ghost::after { background:var(--accent); opacity:1; }
 .pill { padding:10px 18px; font-size:14px; }
+.rmenu { position:relative; }
+.rmenu summary { list-style:none; cursor:pointer; }
+.rmenu summary::-webkit-details-marker { display:none; }
+.navpill .rmenu > summary { padding:8px 14px; border-radius:999px; font-size:14px; transition: background .3s, color .3s; }
+.navpill .rmenu > summary:hover, .navpill .rmenu[open] > summary { background:var(--ink); color:var(--bg); }
+.rmenu > div { position:absolute; top:calc(100% + 8px); left:0; z-index:30; min-width:220px; display:grid; padding:6px;
+  border:1px solid var(--line); border-radius:16px; background:var(--panel); box-shadow: 0 18px 40px -20px #000c; }
+.hero .rmenu > div { top:auto; bottom:calc(100% + 8px); } /* hero clips overflow, so open upward */
+.rmenu > div a { display:block; padding:9px 14px; border-radius:10px; text-decoration:none; font-size:14px; color:var(--ink); }
+.rmenu > div a:hover { background:var(--ink); color:var(--bg); }
 
 /* nav */
 nav { position:fixed; inset:0 0 auto; z-index:20; display:flex; justify-content:space-between; align-items:center; gap:12px;
@@ -297,7 +307,7 @@ dialog .x { position:fixed; top:16px; right:16px; z-index:2; width:44px; height:
     <li><a href="#about">About</a></li>
     <li><a href="#work">Work<sup id="nWork"></sup></a></li>
     <li><a href="#experience">Experience<sup id="nXp"></sup></a></li>
-    <li><a id="navResume" target="_blank" rel="noopener">Resume</a></li>
+    <li><details class="rmenu"><summary>Resume ▾</summary><div><a href="Denver-Lo-Resume.pdf" target="_blank" rel="noopener">Current Resume</a><a href="Denver-Lo-Resume-Feedback.pdf" target="_blank" rel="noopener">Feedback Resume</a></div></details></li>
     <li><a href="#faq">FAQ</a></li>
     <li><a href="#schedule">Schedule</a></li>
   </ul>
@@ -312,7 +322,7 @@ dialog .x { position:fixed; top:16px; right:16px; z-index:2; width:44px; height:
     <h1 id="name" class="kinetic"></h1>
     <div class="hero-grid">
       <p class="lead" id="intro"></p>
-      <div class="cta"><a class="btn" id="heroResume" target="_blank" rel="noopener">View resume ↗</a><a class="btn ghost" href="#work">See the work</a></div>
+      <div class="cta"><details class="rmenu"><summary class="btn">View resume ▾</summary><div><a href="Denver-Lo-Resume.pdf" target="_blank" rel="noopener">Current Resume</a><a href="Denver-Lo-Resume-Feedback.pdf" target="_blank" rel="noopener">Feedback Resume</a></div></details><a class="btn ghost" href="#work">See the work</a></div>
     </div>
     <ul class="stats" id="stats"></ul>
   </div>
@@ -564,7 +574,6 @@ function render(c) {
   const e = c.education;
   $("eduDegree").textContent = e.degree; $("eduSchool").textContent = e.school; $("eduDate").textContent = e.date;
   $("eduCreds").append(...e.credentials.map(t => el("li", "", t))); $("eduCourses").append(...e.coursework.map(t => el("li", "", t)));
-  for (const id of ["navResume", "heroResume"]) { $(id).href = c.resume; $(id).hidden = !c.resume; }
   if (c.resume) { const a = el("a", "pill", "Resume ↗"); a.href = c.resume; a.target = "_blank"; a.rel = "noopener"; $("links").lastElementChild.before(a); }
   for (const f of c.faq || []) { const row = el("details", "xp faq reveal"), head = el("summary"), more = el("div", "more");
     head.append(el("h3", "", f.q)); more.append(el("p", "", f.a)); row.append(head, more); $("faqs").append(row); }
@@ -668,9 +677,18 @@ function schedule(c) {
   load().catch(() => $("dayTitle").textContent = `The calendar is offline. Email ${c.contact.email} instead.`);
 }
 
-fetch("content.json").then(r => r.json()).then(render)
+// local research case studies (website/public/_research, git-ignored): localhost only, never on the public site
+const local = ["localhost", "127.0.0.1"].includes(location.hostname);
+if (local) document.querySelectorAll(".rmenu > div").forEach(m => m.insertAdjacentHTML("beforeend",
+  '<a href="_research/Denver-Lo-Resume-HBS.pdf" target="_blank" rel="noopener">Harvard Business School</a>'));
+Promise.all([fetch("content.json").then(r => r.json()),
+  local ? fetch("_research/entries.json").then(r => r.ok ? r.json() : []).catch(() => []) : []])
+  .then(([c, extra]) => { c.projects = [...extra, ...c.projects]; render(c); })
   .catch(() => document.body.prepend(el("p", "", "Couldn't load content.json. Start the site with: python website/server.py")));
 </script>
 <script src="dog.js"></script>
+<script>// close resume menus on outside click or after picking one
+document.addEventListener("click", e => document.querySelectorAll(".rmenu[open]").forEach(d => { if (!d.contains(e.target) || e.target.closest(".rmenu > div a")) d.open = false; }));
+</script>
 </body>
 </html>
