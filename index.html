@@ -211,6 +211,9 @@ h1 .kw:last-child .kc:last-child { color:var(--accent); }
 .contact .mail:hover { color:var(--accent); }
 .contact .where { margin-top:16px; }
 .contact .qr { margin:32px 0 0; } .contact .qr img { display:block; background:#fff; border-radius:8px; image-rendering:pixelated; }
+.contact .qr img { cursor:zoom-in; }
+#qrbox { width:100vw; height:100dvh; max-width:none; max-height:none; margin:0; border:0; border-radius:0; background:#fff; }
+#qrbox[open] { display:grid; place-items:center; } #qrbox img { width:min(90vw, 90dvh); height:auto; image-rendering:pixelated; }
 .contact .qr figcaption { margin-top:8px; color:var(--ink-2); font-size:15px; }
 .links { display:flex; flex-wrap:wrap; gap:10px; margin-top:36px; }
 
@@ -381,7 +384,7 @@ dialog .x { position:fixed; top:16px; right:16px; z-index:2; width:44px; height:
     <a class="mail" id="mail"></a>
     <p class="measure where" id="where"></p>
     <div class="links" id="links"><a class="btn" id="bookBtn" href="#schedule">Book a time ↓</a><button class="pill" type="button" data-chat>Ask Hero AI about me</button></div>
-    <figure class="qr reveal"><img src="media/site-qr.png" width="140" height="140" alt="QR code linking to drlo-hero.github.io"><figcaption class="measure">Scan to open this site on your phone.</figcaption></figure>
+    <figure class="qr reveal"><img id="qrOpen" role="button" tabindex="0" title="Tap to enlarge" src="media/site-qr.png" width="140" height="140" alt="QR code linking to drlo-hero.github.io"><figcaption class="measure">Scan to open this site on your phone.</figcaption></figure>
   </section>
 
   <section id="schedule">
@@ -422,6 +425,11 @@ dialog .x { position:fixed; top:16px; right:16px; z-index:2; width:44px; height:
   <div class="lbnav" id="lbNav"><button type="button" id="lbPrev" aria-label="Previous capability">←</button><button type="button" id="lbNext" aria-label="Next capability">→</button><b id="lbCap"></b><span id="lbCount"></span></div>
   <div class="body"><p id="lbCapText" style="margin-top:0"></p><p class="label" id="lbMeta" style="margin-top:28px"></p><h3 id="lbTitle"></h3><div id="lbBody"></div>
     <a class="pill" id="lbLink" target="_blank" rel="noopener">Visit project →</a></div>
+</dialog>
+
+<dialog id="qrbox" aria-label="QR code for this site">
+  <button type="button" class="x" id="qrClose" aria-label="Close">×</button>
+  <a href="https://drlo-hero.github.io/" target="_blank" rel="noopener"><img src="media/site-qr.png" alt="QR code. Tap to open drlo-hero.github.io in a new tab"></a>
 </dialog>
 
 <div class="wip" id="wip" role="status" hidden>🚧 Under construction: this site is a first version and still being built.</div>
@@ -495,6 +503,10 @@ $("lightbox").addEventListener("keydown", e => { if (e.key === "ArrowLeft") show
 $("lightbox").onclose = () => $("lbVideo").pause();
 $("lightbox").onclick = e => (e.target === $("lightbox") || e.target.closest("#lbClose")) && $("lightbox").close();  // X or click outside closes
 $("lbVideo").onerror = () => $("lbVideo").hidden = true;
+// QR: first tap goes full screen, tapping the big code opens the site in a new tab, X or outside closes
+$("qrOpen").onclick = () => $("qrbox").showModal();
+$("qrOpen").onkeydown = e => (e.key === "Enter" || e.key === " ") && (e.preventDefault(), $("qrbox").showModal());
+$("qrbox").onclick = e => (e.target === $("qrbox") || e.target.closest("#qrClose")) && $("qrbox").close();
 
 const chips = items => { const u = el("ul", "chips"); u.append(...items.map(t => el("li", "", t))); return u; };
 const tiles = items => { const u = el("ul", "nums"); for (const n of items) { const li = el("li"); li.append(el("b", "", n.value), el("span", "", n.label)); u.append(li); } return u; };
