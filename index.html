@@ -210,6 +210,8 @@ h1 .kw:last-child .kc:last-child { color:var(--accent); }
   text-decoration-color: var(--accent); text-underline-offset:.2em; overflow-wrap:anywhere; }
 .contact .mail:hover { color:var(--accent); }
 .contact .where { margin-top:16px; }
+.contact .qr { margin:32px 0 0; } .contact .qr img { display:block; background:#fff; border-radius:8px; image-rendering:pixelated; }
+.contact .qr figcaption { margin-top:8px; color:var(--ink-2); font-size:15px; }
 .links { display:flex; flex-wrap:wrap; gap:10px; margin-top:36px; }
 
 /* schedule */
@@ -379,6 +381,7 @@ dialog .x { position:fixed; top:16px; right:16px; z-index:2; width:44px; height:
     <a class="mail" id="mail"></a>
     <p class="measure where" id="where"></p>
     <div class="links" id="links"><a class="btn" id="bookBtn" href="#schedule">Book a time ↓</a><button class="pill" type="button" data-chat>Ask Hero AI about me</button></div>
+    <figure class="qr reveal"><img src="media/site-qr.png" width="140" height="140" alt="QR code linking to drlo-hero.github.io"><figcaption class="measure">Scan to open this site on your phone.</figcaption></figure>
   </section>
 
   <section id="schedule">
