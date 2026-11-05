@@ -552,7 +552,7 @@ function render(c) {
     if (p.shows) t.append(chips(p.shows));
     f.forEach((x, n) => { const li = el("li"), b = el("button", "", x.name); b.type = "button"; b.onclick = () => { auto = false; pick(n); }; li.append(b); caps.append(li); });
     if (f.length) { t.append(caps, text); pick(0); }
-    const go = el("button", "btn ghost", "See the case study"); go.type = "button"; go.onclick = () => openProject(p, cur); t.append(go);
+    const go = el("button", "btn ghost", "View project"); go.type = "button"; go.onclick = () => openProject(p, cur); t.append(go);
     row.append(side, t); $("projects").append(row);
     // the tour: while the project is on screen, step to the next capability every 4 seconds
     let auto = !calm && f.length > 1, seen = false, t0 = 0;
