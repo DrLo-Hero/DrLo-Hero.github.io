@@ -123,6 +123,7 @@ h1 .kw:last-child .kc:last-child { color:var(--accent); }
 .url { flex:1; min-width:0; display:flex; align-items:center; gap:8px; justify-content:center; padding:5px 12px; border-radius:999px;
   background:#f1f1ee0d; font: 400 11px/1.2 var(--mono); color:var(--muted); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
 .url::before { content:""; flex:none; width:6px; height:6px; border-radius:50%; background:#3ecf6e; }
+.screen > .nums { position:absolute; inset:0; margin:0; padding:clamp(20px,4vw,48px); align-content:center; gap:12px; background:none; }
 .screen { position:relative; display:block; aspect-ratio:16/10; background: linear-gradient(135deg, #1c1c21, #2b1711); overflow:hidden; }
 .screen img, .screen video, .media video { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:top left;
   transition: opacity .25s, transform .9s var(--ease); }
@@ -190,6 +191,10 @@ h1 .kw:last-child .kc:last-child { color:var(--accent); }
 .duties section:hover { border-color:var(--accent); transform: translateY(-3px); }
 .xp h4 { font: 400 12px/1.3 var(--mono); letter-spacing:.06em; text-transform:uppercase; color:var(--accent); margin:0 0 12px; }
 .duties li { font-size:15px; }
+.shots { display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:14px; margin:0 0 22px; }
+.shots figure { margin:0; } .shots img { display:block; width:100%; aspect-ratio:16/10; object-fit:cover; border-radius:var(--r); border:1px solid var(--line); }
+.shots figcaption { font-size:12px; line-height:1.45; color:var(--muted); margin-top:8px; } .shots figcaption a { color:inherit; }
+#eduShots { margin-top:clamp(28px,4vw,48px); }
 .xptools { display:flex; gap:14px; align-items:center; margin-top:24px; }
 .xptools .pill { padding:6px 14px; font-size:13px; }
 @media (max-width: 800px) { .xp summary { grid-template-columns:1fr 28px; gap:8px; } .xp summary > * { grid-column:1; }
@@ -310,7 +315,7 @@ dialog .x { position:fixed; top:16px; right:16px; z-index:2; width:44px; height:
   <a class="brand" href="#top"><span id="brand"></span><i>.</i></a>
   <ul class="navpill">
     <li><a href="#about">About</a></li>
-    <li><a href="#work">Work<sup id="nWork"></sup></a></li>
+    <li><a href="#work">Projects<sup id="nWork"></sup></a></li>
     <li><a href="#experience">Experience<sup id="nXp"></sup></a></li>
     <li><details class="rmenu"><summary>Resume ▾</summary><div><a href="Denver-Lo-Resume.pdf" target="_blank" rel="noopener">Current Resume</a></div></details></li>
     <li><a href="#faq">FAQ</a></li>
@@ -327,7 +332,7 @@ dialog .x { position:fixed; top:16px; right:16px; z-index:2; width:44px; height:
     <h1 id="name" class="kinetic"></h1>
     <div class="hero-grid">
       <p class="lead" id="intro"></p>
-      <div class="cta"><details class="rmenu"><summary class="btn">View resume ▾</summary><div><a href="Denver-Lo-Resume.pdf" target="_blank" rel="noopener">Current Resume</a></div></details><a class="btn ghost" href="#work">See the work</a></div>
+      <div class="cta"><details class="rmenu"><summary class="btn">View resume ▾</summary><div><a href="Denver-Lo-Resume.pdf" target="_blank" rel="noopener">Current Resume</a></div></details><a class="btn ghost" href="#work">See the projects</a></div>
     </div>
     <ul class="stats" id="stats"></ul>
   </div>
@@ -347,10 +352,10 @@ dialog .x { position:fixed; top:16px; right:16px; z-index:2; width:44px; height:
   </section>
 
   <section id="work">
-    <p class="label">02 / 06 — Selected work</p>
+    <p class="label">02 / 06 — Selected projects</p>
     <div class="head reveal">
-      <h2 class="kinetic">Work.</h2>
-      <p class="lead">Every project with the problem, the build and the numbers. Real screenshots, no mockups.</p>
+      <h2 class="kinetic">Projects.</h2>
+      <p class="lead">Software I built and work projects I led, each with the problem, the build and the numbers. Real screenshots, no mockups.</p>
     </div>
     <ol class="projects" id="projects"></ol>
   </section>
@@ -369,6 +374,7 @@ dialog .x { position:fixed; top:16px; right:16px; z-index:2; width:44px; height:
       <div><h3 id="eduDegree"></h3><p class="sub" id="eduSchool"></p><p class="sub" id="eduDate"></p><ul class="creds" id="eduCreds" style="margin-top:28px"></ul></div>
       <div><p class="label">Relevant coursework</p><ul class="courses" id="eduCourses"></ul></div>
     </div>
+    <div class="shots reveal" id="eduShots"></div>
   </section>
 
   <section id="faq">
@@ -411,7 +417,7 @@ dialog .x { position:fixed; top:16px; right:16px; z-index:2; width:44px; height:
   <div class="fgrid">
     <div><p class="label">Contact</p><p><a class="fmail" id="footMail"></a></p><p class="measure" id="footWhere"></p></div>
     <div><p class="label">Chapters</p><ul>
-      <li><a href="#about">About</a></li><li><a href="#work">Work</a></li><li><a href="#experience">Experience</a></li>
+      <li><a href="#about">About</a></li><li><a href="#work">Projects</a></li><li><a href="#experience">Experience</a></li>
       <li><a href="#education">Education</a></li><li><a href="#faq">Questions</a></li><li><a href="#contact">Contact</a></li></ul></div>
     <div><p class="label">The dog</p><p>The pixel German Shepherd following your pointer is Hero, my own dog since 2014. Hero AI is named after him. Click and he hops.</p></div>
   </div>
@@ -540,6 +546,7 @@ function render(c) {
     };
     if (f.length) { img.onerror = () => img.style.opacity = 0; scr.append(img); }
     if (p.video) scr.append(clip(p.video, p.poster));
+    else if (!f.length && p.numbers) scr.append(tiles(p.numbers));  // no screenshots (work projects): the numbers fill the screen
     scr.append(el("span", "open", "Enlarge ⤢")); m.append(bar, scr); reel.append(m);
     if (p.badge || f.some(x => x.badge)) { const b = el("span", "badge"); b.setAttribute("aria-hidden", "true"); b.append(bv, bl); reel.append(b); }
     if (f.length > 1) for (const [cls, d, ch, lab] of [["l", -1, "←", "Previous page"], ["r", 1, "→", "Next page"]]) {
@@ -572,10 +579,16 @@ function render(c) {
   $("aboutText").append(...c.about.map(t => el("p", "", t)));
   $("expertise").append(...c.expertise.map(t => el("li", "", t)));
   const list = items => { const u = el("ul"); u.append(...items.map(t => el("li", "", t))); return u; };
+  const shots = (box, items) => { for (const s of items || []) {  // photos with a credit line; caption links to the source when given
+    const f = el("figure"), img = el("img"), cap = el("figcaption");
+    img.src = s.src; img.alt = s.alt || s.caption; img.loading = "lazy";
+    if (s.source) { const a = el("a", "", s.caption); a.href = s.source; a.target = "_blank"; a.rel = "noopener"; cap.append(a); } else cap.textContent = s.caption;
+    f.append(img, cap); box.append(f); } return box; };
   for (const x of c.experience) {  // native <details>: the row shows the highlights, opening it shows every duty
     const row = el("details", "xp reveal"), head = el("summary"), mid = el("div"), more = el("div", "more");
     mid.append(el("h3", "", x.role), el("p", "org", x.org));
     head.append(el("p", "years", x.years), mid, list(x.highlights));
+    if (x.photos) more.append(shots(el("div", "shots"), x.photos));
     if (x.numbers) more.append(tiles(x.numbers));
     more.append(el("p", "", x.description));
     if (x.skills) more.append(chips(x.skills));
@@ -589,6 +602,7 @@ function render(c) {
   const e = c.education;
   $("eduDegree").textContent = e.degree; $("eduSchool").textContent = e.school; $("eduDate").textContent = e.date;
   $("eduCreds").append(...e.credentials.map(t => el("li", "", t))); $("eduCourses").append(...e.coursework.map(t => el("li", "", t)));
+  if (e.photos) shots($("eduShots"), e.photos); else $("eduShots").remove();
   if (c.resume) { const a = el("a", "pill", "Resume ↗"); a.href = c.resume; a.target = "_blank"; a.rel = "noopener"; $("links").lastElementChild.before(a); }
   for (const f of c.faq || []) { const row = el("details", "xp faq reveal"), head = el("summary"), more = el("div", "more");
     head.append(el("h3", "", f.q)); more.append(el("p", "", f.a)); row.append(head, more); $("faqs").append(row); }
@@ -695,7 +709,7 @@ function schedule(c) {
 // local research case studies (website/public/_research, git-ignored): localhost only, never on the public site
 const local = ["localhost", "127.0.0.1"].includes(location.hostname);
 if (local) document.querySelectorAll(".rmenu > div").forEach(m => m.insertAdjacentHTML("beforeend",
-  '<a href="_research/Denver-Lo-Resume-HBS.pdf" target="_blank" rel="noopener">Harvard Business School</a>'));
+  '<a href="_research/Denver-Lo-Resume-HBS.pdf" target="_blank" rel="noopener">Harvard Business School</a><a href="_research/Denver-Lo-Resume-Feedback.pdf" target="_blank" rel="noopener">Feedback</a>'));
 Promise.all([fetch("content.json").then(r => r.json()),
   local ? fetch("_research/entries.json").then(r => r.ok ? r.json() : []).catch(() => []) : []])
   .then(([c, extra]) => { c.projects = [...extra, ...c.projects]; render(c); })
